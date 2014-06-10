@@ -17,17 +17,21 @@
             %span.icon-bar
           %a.navbar-brand{href: "/"} LoveLetterMashup
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          / %ul.nav.navbar-nav
-          /   %li.active
-          /     %a{href: "#"} Link
-          /   %li
-          /     %a{href: "#"} Link
+          - if current_user
+            %ul.nav.navbar-nav
+              %li
+                %a{href: "/"} Your Dashboard
+              %li
+                %a{href: "/letters/new"} Build Letter
           %ul.nav.navbar-nav.navbar-right
-            %li
-              %a{href: "/login"} Login
-            %li
-              %a{href: "/logout"} Logout
-    = js extend_gritter :fade_in_speed => "fast", :fade_out_speed => 1000, :time => 1000, :position => :bottom_left
+            - if current_user
+              %li
+                %a{href: "/logout"} Logout
+            - else
+              %li
+                %a{href: "/login"} Login
+            
+    = js extend_gritter :fade_in_speed => "fast", :fade_out_speed => 1000, :time => 1500, :position => :top_right
     
   
     = gflash

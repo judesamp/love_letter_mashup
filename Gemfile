@@ -16,7 +16,10 @@ gem 'bootstrap-sass'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem "gritter", :git => "git@github.com:/judesamp/gritter.git"
+gem 'gritter', :git => "git@github.com:/judesamp/gritter.git"
+gem 'draper'
+gem "animate-rails"
+gem 'jquery-ui-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

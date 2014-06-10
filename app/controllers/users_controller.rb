@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  skip_filter :authenticate_user, :only => [:create, :new]
+
+  def dashboard
+
+  end
+
+  def new
+    @user = User.new
+  end
 
   def create
     @user = User.new(user_params)

@@ -1,28 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 
 
-Things you may want to cover:
+A whimsical Rails app designed to help you send famous love letters, create surprising mashups of them, and just generally share your love. If that ain't making the world a better place, I don't know what is.
 
-* Ruby version
+## Installation / Setup
 
-* System dependencies
+Clone Repo locally. Install gems:
 
-* Configuration
+    bundle install
 
-* Database creation
+Set up database. This app uses postgres—database de awesome.
 
-* Database initialization
+    rake db:create db:migrate
 
-* How to run the test suite
+I intend to add RSpec tests: unit and integration tests
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
 
-* Deployment instructions
+Contribute by sharing love! Write a letter!
 
-* ...
+## License
 
+MIT License. (To Code.)
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

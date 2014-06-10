@@ -11,9 +11,25 @@
  * file per style scope.
  *
  *= require gritter
+ *= require animate
+ *= require jquery.ui.all
  *= require_tree .
  *= require_self
  */
 
 
 @import "bootstrap";
+
+.centered {
+  text-align: center;
+}
+
+.gray {
+  background: gray;
+}
+
+.main_content {
+  min-height: 350px;
+  background: gray;
+
+}

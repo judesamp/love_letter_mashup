@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  
+  root "users#dashboard"
 
   resources :users
   resources :password_resets
@@ -8,10 +9,13 @@ Rails.application.routes.draw do
 
 
 
-  # session-related routes
+  
+  get "welcome" => "welcome#index"
+  get "signup" => "users#new"
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
   post "sessions" => "sessions#create"
+
 
   # get "auth/facebook" => "auth#facebook"
   # get "auth/facebook/callback" => "auth#facebook_callback"
@@ -21,6 +25,9 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#omniauth_create"
   get "/signout" => "sessions#omniauth_destroy", :as => :signout
+
+
+  get "switch" => "letters#switch_workspace"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
