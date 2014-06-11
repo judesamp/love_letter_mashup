@@ -1,0 +1,25 @@
+var direction = '<%= escape_javascript @direction %>';
+var first_direction = ""
+var second_direction = ""
+
+if (direction == "next") {
+  first_direction = "right"
+  second_direction = "left"
+} else {
+  first_direction = "left"
+  second_direction = "right"
+};
+
+$('.letter_nav').html("");
+$('.letter_nav').html('<%= escape_javascript render(:partial => "letters/letter_nav", :locals => { :offset => @offset, :next_letter => @next_letter, :previous_letter => @previous_letter})%>');
+
+$('.letter_content').hide("slide", { direction: first_direction }, 600, function() {
+
+  $('.letter_content').html("");
+  $('.letter_content').html('<%= escape_javascript render(:partial => "letters/content", :locals => { :current_letter => @current_letter })%>');
+
+});
+
+
+
+$('.letter_content').show("slide", { direction: second_direction }, 600)

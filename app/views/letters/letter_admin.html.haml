@@ -7,8 +7,10 @@
   .col-lg-6.col-md-6
     %h4 Enter a Letter
     = form_for Letter.new do |f|
+      = f.hidden_field :letterable_type, value: "Author"
+
       = f.label :author
-      = f.text_field :author_id, class: 'form-control'
+      = f.select :letterable_id, Author.all.collect {|a| [ "#{a.first_name} #{a.last_name}", a.id ] }, class: 'form-control'
       %br
       = f.label :content
       = f.text_area :content, :cols => 40, :rows => 15, class: 'form-control'
@@ -18,8 +20,11 @@
   .col-lg-6.col-md-6
     %h4 Enter an Author
     = form_for Author.new do |f|
-      = f.label :name
-      = f.text_field :name, class: 'form-control'
+      = f.label :first_name
+      = f.text_field :first_name, class: 'form-control'
+      %br
+      = f.label :last_name
+      = f.text_field :last_name, class: 'form-control'
       %br
       = f.label :bio
       = f.text_area :bio, class: 'form-control'
