@@ -5,7 +5,6 @@ class LettersController < ApplicationController
   end
 
   def switch_workspace
-    puts params[:workspace]
     @workspace = params[:workspace]
   end
 

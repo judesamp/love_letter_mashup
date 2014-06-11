@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/alexpeattie/heroku_secrets.git
-  revision: b0c5f0680c9e57f7749d404426b8841d6ffe0114
-  specs:
-    heroku_secrets (0.0.2)
-
-GIT
   remote: git://github.com/judesamp/gritter.git
   revision: 0e800f5d68b8385081d10bee8962c49934d2e330
   specs:
@@ -268,7 +262,6 @@ DEPENDENCIES
   guard
   guard-rspec
   haml
-  heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
