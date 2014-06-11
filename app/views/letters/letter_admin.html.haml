@@ -1,0 +1,34 @@
+.container
+  %h1 Letter Admin
+
+  %br
+
+
+  .col-lg-6.col-md-6
+    %h4 Enter a Letter
+    = form_for Letter.new do |f|
+      = f.label :author
+      = f.text_field :author_id, class: 'form-control'
+      %br
+      = f.label :content
+      = f.text_area :content, :cols => 40, :rows => 15, class: 'form-control'
+      %br
+      = f.submit
+
+  .col-lg-6.col-md-6
+    %h4 Enter an Author
+    = form_for Author.new do |f|
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+      %br
+      = f.label :bio
+      = f.text_area :bio, class: 'form-control'
+      %br
+      = f.label :author_image
+      = f.file_field :author_image, class: 'form-control'
+      %br
+      = f.submit
+
+%br
+%br
+

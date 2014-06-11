@@ -4,7 +4,13 @@ Rails.application.routes.draw do
 
   resources :users
   resources :password_resets
-  resources :letters
+
+  resources :letters do
+    collection do
+      get "letter_admin"
+    end
+  end
+
   resources :authors
 
 

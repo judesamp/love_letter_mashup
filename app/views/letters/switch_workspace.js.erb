@@ -1,9 +1,13 @@
+$(".workspace_buttons").fadeOut();
+
 $('.main_content').hide("slide", { direction: "right" }, 600, function() {
 
    $('.main_content').html("");
   $('.main_content').html('<%= escape_javascript render(:partial => "letters/#{@workspace}")%>');
 
 });
+
+
 
 $('.main_content').show("slide", { direction: "left" }, 600)
     
