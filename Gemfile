@@ -17,6 +17,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'gritter', :github => "judesamp/gritter"
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'draper'
 gem "animate-rails"
 gem 'jquery-ui-rails'
