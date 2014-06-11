@@ -16,7 +16,7 @@ gem 'bootstrap-sass'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'gritter', :github => "judesamp/gritter.git"
+gem 'gritter', :github => "judesamp/gritter"
 gem 'draper'
 gem "animate-rails"
 gem 'jquery-ui-rails'

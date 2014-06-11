@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:/judesamp/gritter.git
+  remote: git://github.com/judesamp/gritter.git
   revision: 0e800f5d68b8385081d10bee8962c49934d2e330
   specs:
     gritter (1.1.0)
