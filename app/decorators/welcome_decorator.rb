@@ -1,4 +1,3 @@
-class WelcomeController < Draper::Decorator
-  dele
+# class WelcomeController < Draper::Decorator
 
-end
+# end
