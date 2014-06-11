@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#omniauth_create"
   get "/signout" => "sessions#omniauth_destroy", :as => :signout
 
-
   get "switch" => "letters#switch_workspace"
 
   # The priority is based upon order of creation: first created -> highest priority.
