@@ -7,7 +7,6 @@ class LettersController < ApplicationController
   def show
     @offset = params[:offset].to_i
     @direction = params[:direction]
-    puts params[:direction]
     @current_letter = Letter.limit(1).offset(@offset).first
     @next_letter = Letter.limit(1).offset(@offset + 1).first
     if @offset == 0
@@ -32,9 +31,9 @@ class LettersController < ApplicationController
     @workspace = params[:workspace]
     if @workspace == "full_letter_workspace"
       @offset = 0
-      @current_letter = Letter.find 1
+      @current_letter = Letter.first
       @previous_letter = nil
-      @next_letter = Letter.limit(1).offset(1)
+      @next_letter = Letter.limit(1).offset(0)[0]
     end
   end
 

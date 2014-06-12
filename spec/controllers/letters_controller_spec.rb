@@ -35,7 +35,6 @@ describe LettersController do
       login(letter.letterable)
       letter2 = FactoryGirl.create(:letter)
       xhr :get, :show, id: letter, workspace: "full_letter_workspace", offset: 1, direction: "next", :format => "js"
-      puts assigns(:current_letter)
       expect(assigns(:current_letter)).to eq letter2
     end
 
@@ -97,14 +96,30 @@ describe LettersController do
     end
 
     context "workspace equals full_letter_workspace" do
+   
+      it "assigns an offset of 0 to @offset" do
+        login(letter.letterable)
+        xhr :get, :switch_workspace, workspace: "full_letter_workspace", :format => "js"
+        expect(assigns(:offset)).to eq 0
+      end
 
-      it "assigns an offset of 0 to @offset"
+      it "assigns the first letter to @current_letter" do
+        login(letter.letterable)
+        xhr :get, :switch_workspace, workspace: "full_letter_workspace", :format => "js"
+        expect(assigns(:current_letter)).to eq letter
+      end
+      it "assigns @previous_letter to nil" do
+        login(letter.letterable)
+        xhr :get, :switch_workspace, workspace: "full_letter_workspace", :format => "js"
+        expect(assigns(:previous_letter)).to eq nil
+      end
 
-      it "assigns the first letter to @current_letter"
-
-      it "assigns @previous_letter to nil"
-
-      it "assigns @next_letter to the second letter"
+      it "assigns @next_letter to the second letter" do
+        second_letter = letter2
+        login(letter.letterable)
+        xhr :get, :switch_workspace, workspace: "full_letter_workspace", :format => "js"
+        expect(assigns(:next_letter)).to eq second_letter
+      end
 
     end
 

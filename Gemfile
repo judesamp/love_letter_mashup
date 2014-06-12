@@ -38,4 +38,5 @@ group :development, :test do
   gem 'faker'
   gem 'launchy'
   gem 'spring'
+  gem 'debugger'
 end
