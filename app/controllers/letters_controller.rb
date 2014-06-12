@@ -30,8 +30,7 @@ class LettersController < ApplicationController
 
   def switch_workspace
     @workspace = params[:workspace]
-    case @workspace
-    when "full_letter_workspace"
+    if @workspace == "full_letter_workspace"
       @offset = 0
       @current_letter = Letter.find 1
       @previous_letter = nil

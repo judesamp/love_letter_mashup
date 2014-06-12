@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :letters
+  has_many :letters, as: :letterable
 
   def self.create_with_omniauth(auth)
     create! do |user|

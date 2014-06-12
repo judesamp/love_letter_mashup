@@ -30,7 +30,9 @@
 
 .main_content {
   min-height: 350px;
-  background: gray;
+  border: 1px solid #333333;
+  border-radius: 150px;
+  overflow: auto;
 }
 
 .navbar {
@@ -39,4 +41,38 @@
 
 .workspace_nav {
   margin-top: 20px;
+}
+
+.workspace_back {
+  position: absolute;
+  left: 20px;
+  top: 71px;
+}
+
+.send_letter_button {
+  position: absolute;
+  right: 20px;
+  top: 71px;
+}
+
+.letter_nav {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.direction_button {
+  width: 200px;
+}
+
+.letter_text {
+  padding: 0 60px;
+}
+
+.workspace_content {
+  min-height: 350px;
+  overflow: auto;
+}
+
+.floating_nav {
+  display: none;
 }

@@ -1,9 +1,9 @@
 - if previous_letter.present?
-  = link_to "Previous", letter_path(previous_letter, offset: offset - 1, direction: "previous"), remote: true, class: "btn-default btn btn-block"
+  = link_to "Previous", letter_path(previous_letter, offset: offset - 1, direction: "previous"), remote: true, class: "btn-default btn direction_button"
 - else
-  = link_to "Previous", root_path, class: "btn-default btn btn-block disabled"
+  = link_to "Previous", root_path, class: "btn-default btn disabled direction_button"
 
 - if next_letter.present?
-  = link_to "Next", letter_path(next_letter, offset: offset + 1, direction: "next"), remote: true, class: "btn-default btn btn-block"
+  = link_to "Next", letter_path(next_letter, offset: offset + 1, direction: "next"), remote: true, class: "btn-default btn direction_button"
 - else
-  = link_to "Next", root_path, class: "btn-default btn btn-block disabled"
+  = link_to "Next", root_path, class: "btn-default btn disabled direction_button"

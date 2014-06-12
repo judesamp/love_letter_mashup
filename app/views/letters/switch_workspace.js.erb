@@ -1,15 +1,17 @@
-$(".workspace_buttons").fadeOut();
-
 $('.main_content').hide("slide", { direction: "right" }, 600, function() {
 
-   $('.main_content').html("");
+  $('.main_content').html("");
   $('.main_content').html('<%= escape_javascript render(:partial => "letters/#{@workspace}")%>');
+  $('.workspace_buttons').fadeOut();
+  
 
+
+}).delay(600);
+
+
+$('.main_content').show("slide", { direction: "left" }, 600, function() {
+  $('.floating_nav').delay(600).fadeIn('slow');
 });
-
-
-
-$('.main_content').show("slide", { direction: "left" }, 600)
     
    
   

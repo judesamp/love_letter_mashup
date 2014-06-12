@@ -1,19 +1,23 @@
-= link_to "Back", new_letter_path, class: "btn-primary btn"
+= link_to "Back", new_letter_path, class: "btn-primary btn workspace_back floating_nav"
+= link_to "Send", new_letter_path, class: "btn-primary btn send_letter_button floating_nav"
 
 .row
   .container
-    .col-lg-10.col-md-10.col-lg-offset-1.col-md-offset-1.main_content
+    .col-lg-10.col-md-10.col-lg-offset-1.col-md-offset-1.workspace_content
 
       .letter_nav
         - if @previous_letter.present?
-          = link_to "Previous", letter_path(@previous_letter, offset: @offset - 1, direction: "previous"), remote: true, class: "btn-default btn btn-block"
+          = link_to "Previous", letter_path(@previous_letter, offset: @offset - 1, direction: "previous"), remote: true, class: "btn-default btn direction_button"
         - else
-          = link_to "Previous", root_path, class: "btn-default btn btn-block disabled"
+          = link_to "Previous", root_path, class: "btn-default btn disabled direction_button"
 
         - if @next_letter.present?
-          = link_to "Next", letter_path(@next_letter, offset: @offset + 1, direction: "next" ), remote: true, class: "btn-default btn btn-block"
+          = link_to "Next", letter_path(@next_letter, offset: @offset + 1, direction: "next" ), remote: true, class: "btn-default btn direction_button"
         - else
-          = link_to "Next", root_path, class: "btn-default btn btn-block disabled"
-
+          = link_to "Next", root_path, class: "btn-default btn disabled direction_button"
+      
       .letter_content
         = render "letters/content"
+
+
+  = link_to "Send this Letter Now", new_letter_path, class: "btn-primary btn btn-block send_letter"
