@@ -1,9 +1,10 @@
 = link_to "Back", new_letter_path, class: "btn-primary btn workspace_back floating_nav"
-= link_to "Send", new_letter_path, class: "btn-primary btn send_letter_button floating_nav"
+= link_to "Send", new_letter_path, class: "btn-primary btn send_letter_button top_right floating_nav"
+
 
 .row
   .container
-    .col-lg-10.col-md-10.col-lg-offset-1.col-md-offset-1.workspace_content
+    .col-lg-10.col-md-10.col-lg-offset-1.col-md-offset-1.main_content
 
       .letter_nav
         - if @previous_letter.present?
@@ -19,5 +20,10 @@
       .letter_content
         = render "letters/content"
 
+      = link_to "Send this Letter Now", new_letter_path, class: "btn-primary btn btn-block send_letter_button send_letter_button_bottom"
 
-  = link_to "Send this Letter Now", new_letter_path, class: "btn-primary btn btn-block send_letter"
+        
+
+
+.send_letter_modal.modal_custom
+  = render "letters/send_letter_modal"

@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   resources :password_resets
 
   resources :letters do
+    post "add_to_user"
+
     collection do
       get "letter_admin"
     end
   end
 
   resources :authors
+  resources :letter_orders
 
 
 

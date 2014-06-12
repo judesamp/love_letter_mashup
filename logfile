@@ -1,0 +1,9 @@
+LOG:  database system was shut down at 2014-06-12 14:05:16 EDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  terminating autovacuum process due to administrator command
+ERROR:  database "love_letter_mashup_development" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "love_letter_mashup_development"
+ERROR:  database "love_letter_mashup_development" already exists
+STATEMENT:  CREATE DATABASE "love_letter_mashup_development" ENCODING = 'utf8'

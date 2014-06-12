@@ -37,10 +37,24 @@ class LettersController < ApplicationController
     end
   end
 
+
+  # add delete functionality if user clicks on fade/close (rather than submitting next form)
+  def add_to_user
+    @letter = Letter.find(params[:letter_id])
+    @user = User.find(params[:letter][:user_id])
+    puts @user.letters.inspect
+    if @user.letters << @letter
+      puts @user.letters.inspect
+      render plain: "1"
+    else
+      render plain: "0"
+    end
+  end
+
   private
 
   def letter_params 
-    params.require(:letter).permit(:content, :letterable_id, :letterable_type)
+    params.require(:letter).permit(:content, :author_id, :user_id)
   end
 
 end

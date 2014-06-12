@@ -1,8 +1,11 @@
 %br
-%h3.centered
-  = @current_letter.letterable.first_name
-  = @current_letter.letterable.last_name
+%h3.centered.letter_data{data: {"letter-id" => @current_letter.id, "user-id" => current_user.id}}
+  = @current_letter.author.first_name
+  = @current_letter.author.last_name
 %br
 
 .letter_text
   = @current_letter.content
+%br
+
+ 

@@ -126,13 +126,3 @@ describe LettersController do
   end
 
 end
-
-#   def switch_workspace
-#     @workspace = params[:workspace]
-#     if @workspace == "full_letter_workspace"
-#       @offset = 0
-#       @current_letter = Letter.find 1
-#       @previous_letter = nil
-#       @next_letter = Letter.limit(1).offset(1)
-#     end
-#   end
