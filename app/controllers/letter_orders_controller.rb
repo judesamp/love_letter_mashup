@@ -2,11 +2,7 @@ class LetterOrdersController < ApplicationController
 
   def create
     @letter_order = LetterOrder.new(letter_order_params)
-    if @letter_order.save
-      puts @letter_order.inspect
-      letter = Letter.find(@letter_order.letter_id)
-      LetterMailer.love_letter(current_user, letter, @letter_order).deliver
-      gflash notice: "Your letter has been sent!"
+    if @letter_order.save    
       redirect_to letter_order_path(@letter_order)
     else
       gflash notice: "There was a problem saving your order. Please try again"
@@ -16,6 +12,15 @@ class LetterOrdersController < ApplicationController
 
   def show
     @letter_order = LetterOrder.find(params[:id])
+    @letter = Letter.find(@letter_order.letter_id)
+  end
+
+  def deliver_as_email
+    @letter_order = LetterOrder.find(params[:id])
+    letter = Letter.find(@letter_order.letter_id)
+    LetterMailer.love_letter(current_user, letter, @letter_order).deliver
+    gflash notice: "Your letter has been sent!"
+    redirect_to root_path
   end
 
   private

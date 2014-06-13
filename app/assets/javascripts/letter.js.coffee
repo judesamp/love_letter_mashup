@@ -21,7 +21,5 @@ $ ->
 
     $('.send_letter_modal').fadeIn();
     $('#fade').fadeIn();
-
-  $(document).on 'click', '.letter_order_button', (e) ->
-    alert('here')
+    
 

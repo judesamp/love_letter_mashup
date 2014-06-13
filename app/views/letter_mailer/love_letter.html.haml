@@ -4,7 +4,7 @@
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
     %h1
-      Dearest, #{@letter_order.recipient_name}
+      Dearest #{@letter_order.recipient_name},
     %p
       = simple_format(@letter.content)
       
