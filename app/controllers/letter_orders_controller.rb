@@ -15,6 +15,7 @@ class LetterOrdersController < ApplicationController
     @letter = Letter.find(@letter_order.letter_id)
   end
 
+  # move to model
   def deliver_as_email
     @letter_order = LetterOrder.find(params[:id])
     letter = Letter.find(@letter_order.letter_id)

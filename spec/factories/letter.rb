@@ -3,7 +3,7 @@ FactoryGirl.define do
   factory :letter do |f|
     
     f.content "This is my love letter."
-    f.letterable factory: :user
+    f.author factory: :author
 
   end
 
