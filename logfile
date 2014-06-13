@@ -7,3 +7,7 @@ DETAIL:  There are 2 other sessions using the database.
 STATEMENT:  DROP DATABASE IF EXISTS "love_letter_mashup_development"
 ERROR:  database "love_letter_mashup_development" already exists
 STATEMENT:  CREATE DATABASE "love_letter_mashup_development" ENCODING = 'utf8'
+ERROR:  column letter_orders.user_id does not exist at character 116
+STATEMENT:  SELECT "letters".* FROM "letters" INNER JOIN "letter_orders" ON "letters"."id" = "letter_orders"."letter_id" WHERE "letter_orders"."user_id" = $1
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "letters".* FROM "letters"  WHERE "letters"."id" = $1 LIMIT 1

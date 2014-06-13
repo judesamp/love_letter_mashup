@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :letters
+  has_many :letter_orders
+  has_many :letters, through: :letter_orders 
 
   def self.create_with_omniauth(auth)
     create! do |user|

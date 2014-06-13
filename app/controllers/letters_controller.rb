@@ -9,6 +9,8 @@ class LettersController < ApplicationController
     @direction = params[:direction]
     @current_letter = Letter.limit(1).offset(@offset).first
     @next_letter = Letter.limit(1).offset(@offset + 1).first
+    @current_user_id = current_user.id.to_s
+    @current_letter_id = @current_letter.id.to_s
     if @offset == 0
       @previous_letter = nil
     else
@@ -39,17 +41,16 @@ class LettersController < ApplicationController
 
 
   # add delete functionality if user clicks on fade/close (rather than submitting next form)
-  def add_to_user
-    @letter = Letter.find(params[:letter_id])
-    @user = User.find(params[:letter][:user_id])
-    puts @user.letters.inspect
-    if @user.letters << @letter
-      puts @user.letters.inspect
-      render plain: "1"
-    else
-      render plain: "0"
-    end
-  end
+  # def add_to_user
+  #   @letter = Letter.find(params[:letter_id])
+  #   @user = User.find(params[:letter][:user_id])
+  #   @user.letters << @letter
+  #   if @user.save
+  #     render plain: "1"
+  #   else
+  #     render plain: "0"
+  #   end
+  # end
 
   private
 

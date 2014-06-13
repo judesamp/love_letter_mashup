@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Dearest, #{@letter_order.recipient_name}
+    %p
+      = simple_format(@letter.content)
+      
+    %p
+      Love, 
+    %br
+      #{@letter_order.signature}

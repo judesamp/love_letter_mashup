@@ -1,8 +1,23 @@
-%h1 Send Your Letter
+%h1.centered Send Your Letter
+
+First choose how to send your love letter:
+
+%br
+
+= link_to "Send Email", new_letter_path, class: "btn-primary btn thirty-three"
+
+= link_to "Send Snail Mail", new_letter_path, class: "btn-primary btn thirty-three"
+
+= link_to "Send Postcard", new_letter_path, class: "btn-primary btn thirty-three"
+
+%br
+%br
+
 
 = form_for LetterOrder.new do |f|
   
   = f.hidden_field :letter_id, value: @current_letter.id
+  = f.hidden_field :user_id, value: current_user.id
   
   = f.label :recipient_name
   = f.text_field :recipient_name, class: 'form-control'
@@ -13,8 +28,8 @@
   = f.label :signature
   = f.text_field :signature, class: 'form-control'
   %br
-  = f.label :type
-  = f.select :type, [ "email", "snail_mail", "postcoard" ], { :include_blank => false }, class: 'form-control'
+  / = f.label :type
+  / = f.select :type, [ "email", "snail_mail", "postcoard" ], { :include_blank => false }, class: 'form-control'
   %br
   %br
   = f.submit "Submit", :class => 'btn btn-default btn-block letter_order_button'

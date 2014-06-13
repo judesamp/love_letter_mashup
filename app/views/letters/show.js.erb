@@ -1,4 +1,7 @@
 var direction = '<%= escape_javascript @direction %>';
+var current_letter = '<%= escape_javascript @current_letter_id %>';
+var current_user = '<%= escape_javascript @current_user_id %>';
+
 var first_direction = ""
 var second_direction = ""
 
@@ -15,6 +18,8 @@ $('.letter_nav').html('<%= escape_javascript render(:partial => "letters/letter_
 
 $('.letter_content').hide("slide", { direction: first_direction }, 600, function() {
 
+  $('#letter_order_letter_id').val(current_letter);
+  $('#letter_order_user_id').val(current_user);
   $('.letter_content').html("");
   $('.letter_content').html('<%= escape_javascript render(:partial => "letters/content", :locals => { :current_letter => @current_letter })%>');
 
