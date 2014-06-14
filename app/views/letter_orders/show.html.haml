@@ -28,4 +28,9 @@
           #{@letter_order.signature}
 
       %br
-      
+      .col-lg-8.col-md-8.col-sm-8.col-md-offset-2.col-sm-2.col-sm-offset-2
+        - if @letter_order.delivery_type == "snail"
+          = link_to "Send Letter", checkout_letter_order_path(@letter_order), class: "btn-primary btn btn-block"
+        - else
+          = link_to "Send Email", deliver_as_email_letter_order_path(@letter_order), class: "btn-primary btn btn-block"
+

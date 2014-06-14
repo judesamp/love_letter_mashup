@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :letter_orders do
     member do
       get "deliver_as_email"
+      get "checkout"
+      post "charge_create"
+      get "deliver_as_snail"
     end
   end
 
