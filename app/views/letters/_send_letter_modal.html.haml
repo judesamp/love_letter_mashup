@@ -6,88 +6,80 @@ First choose how to send your love letter. You will have a chance to review your
 %br
 
 .col-lg-4.col-md-4.col-sm-4
-  = link_to "Send Email", root_path, class: "btn-primary btn btn-block"
+  = link_to "Send Email", root_path, class: "btn-primary btn btn-block send_email_button"
 .col-lg-4.col-md-4.col-sm-4
-  = link_to "Snail Mail", root_path, class: "btn-primary btn btn-block"
+  = link_to "Snail Mail", root_path, class: "btn-primary btn btn-block snail_mail_button"
 .col-lg-4.col-md-4.col-sm-4
   = link_to "Postcards", root_path, class: "btn-primary btn btn-block disabled"
 
-.email_letter_order
-  %br
-  %br
-  = form_for LetterOrder.new do |f|
+.col-lg-12.col-md-12.col-sm-12
+  .email_letter_order.hidden_form
+    = form_for LetterOrder.new do |f|
+      %br
+      %legend Letter Details
+      = f.hidden_field :letter_id, value: @current_letter.id
+      = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :delivery_type, value: "email"
+      
+      = f.label :recipient_name
+      = f.text_field :recipient_name, class: 'form-control'
+      %br
+      = f.label :recipient_email
+      = f.text_field :recipient_email, class: 'form-control'
+      %br
+      = f.label :signature
+      = f.text_field :signature, class: 'form-control'
+      %br
+      / = f.label :type
+      / = f.select :type, [ "email", "snail_mail", "postcoard" ], { :include_blank => false }, class: 'form-control'
+      
+      = f.submit "Submit", :class => 'btn btn-default btn-block letter_order_button'
+      %br
+.col-lg-12.col-md-12.col-sm-12
+  .snail_mail_order_letter.hidden_form
     %br
-    %legend Letter Details
-    = f.hidden_field :letter_id, value: @current_letter.id
-    = f.hidden_field :user_id, value: current_user.id
-    = f.hidden_field :type, value: "email"
-    
-    = f.label :recipient_name
-    = f.text_field :recipient_name, class: 'form-control'
-    %br
-    = f.label :recipient_email
-    = f.text_field :recipient_email, class: 'form-control'
-    %br
-    = f.label :signature
-    = f.text_field :signature, class: 'form-control'
-    %br
-    / = f.label :type
-    / = f.select :type, [ "email", "snail_mail", "postcoard" ], { :include_blank => false }, class: 'form-control'
-    
-    = f.submit "Submit", :class => 'btn btn-default btn-block letter_order_button'
+    = form_for LetterOrder.new do |f|
+      
+      = f.hidden_field :letter_id, value: @current_letter.id
+      = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :delivery_type, value: "snail"
 
-.snail_mail_order_letter
-  %br
-  .row
-    .col-md-4.col-md-offset-4
-      %form.form-horizontal{role: "form"}
-        %fieldset
-          / Form Name
-          
-          / Text input
-          
-          = form_for LetterOrder.new do |f|
-            
-            = f.hidden_field :letter_id, value: @current_letter.id
-            = f.hidden_field :user_id, value: current_user.id
+      %legend Letter Details
 
-            %legend Letter Details
+      = f.label :recipient_name
+      = f.text_field :recipient_name, class: 'form-control'
+      %br
+      = f.label :signature
+      = f.text_field :signature, class: 'form-control'
+      %br
 
-            = f.label :recipient_name
-            = f.text_field :recipient_name, class: 'form-control'
-            %br
-            = f.label :signature
-            = f.text_field :signature, class: 'form-control'
-            %br
+      %legend Address Details
 
-            %legend Address Details
-
-            .form-group
-              = f.label :line_1, class: 'col-sm-2 control-label'
-              .col-sm-10
-                = f.text_field :type, class: 'form-control', :placeholder => "Address Line 1"
-            
-            .form-group
-              = f.label :line_2, class: 'col-sm-2 control-label'
-              .col-sm-10
-                = f.text_field :type, class: 'form-control', :placeholder => "Address Line 2"
-
-            .form-group
-              = f.label :city, class: 'col-sm-2 control-label'
-              .col-sm-10
-                = f.text_field :type, class: 'form-control', :placeholder => "City"
-
-            .form-group
-              = f.label :state, class: 'col-sm-2 control-label'
-              .col-sm-4
-                = f.text_field :type, class: 'form-control', :placeholder => "State"
-
-              = f.label :zipcode, class: 'col-sm-2 control-label'
-              .col-sm-4
-                = f.text_field :type, class: 'form-control', :placeholder => "Zipcode"
-              %br
-              %br
-            = f.submit "Submit", :class => 'btn btn-default btn-block letter_order_button'
+      .form-group
+        = f.label :line_1, class: 'col-sm-2 control-label'
+        .col-sm-10
+          = f.text_field :address_line_1, class: 'form-control', :placeholder => "Address Line 1"
+          %br
+      .form-group
+        = f.label :line_2, class: 'col-sm-2 control-label'
+        .col-sm-10
+          = f.text_field :address_line_2, class: 'form-control', :placeholder => "Address Line 2"
+          %br
+      .form-group
+        = f.label :city, class: 'col-sm-2 control-label'
+        .col-sm-10
+          = f.text_field :city, class: 'form-control', :placeholder => "City"
+          %br
+      .form-group
+        = f.label :state, class: 'col-sm-2 control-label'
+        .col-sm-4
+          = f.text_field :state, class: 'form-control', :placeholder => "State"
+          %br
+        = f.label :zipcode, class: 'col-sm-2 control-label'
+        .col-sm-4
+          = f.text_field :zip_code, class: 'form-control', :placeholder => "Zipcode"
+          %br
+      = f.submit "Submit", :class => 'btn btn-default btn-block letter_order_button'
 
 
 

@@ -20,6 +20,10 @@ gem 'gritter', :github => "judesamp/gritter"
 gem 'draper'
 gem "animate-rails"
 gem 'jquery-ui-rails'
+gem 'prawn'
+gem 'httparty'
+gem 'lob'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

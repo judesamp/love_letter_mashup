@@ -21,5 +21,7 @@ $ ->
 
     $('.send_letter_modal').fadeIn();
     $('#fade').fadeIn();
+
+  
     
 
