@@ -1,0 +1,4 @@
+$('.letter_view_workspace').html('');
+$('.letter_view_workspace').html("<%= escape_javascript render(:partial => 'letters/snippet_letter_list', :locals => { :letter => @letter })%>");
+
+

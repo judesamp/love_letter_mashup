@@ -30,6 +30,32 @@ class LettersController < ApplicationController
     end
   end
 
+  def create_with_snippet
+    @letter = Letter.create
+    current_user.letters << @letter
+    current_user.save #necessary?
+    @snippet = Snippet.find(params[:letter][:snippet_id])
+    @letter.snippets << @snippet
+    @letter.save
+  end
+
+  def add_or_subtract_snippet
+    letter_id = params[:letter_id].to_i
+    snippet_id = params[:snippet][:snippet_id].to_i
+    @snippet = Snippet.find(snippet_id)
+    if params[:snippet][:checked] == "true"
+      @letter = Letter.find(letter_id)
+      @letter.snippets << @snippet
+    else
+      @letter = Letter.find(letter_id)
+      @letter.snippets.delete(@snippet)
+    end
+  end
+
+  def retrieve_letter
+    @letter = Letter.find(params[:letter_id])
+  end
+
   def switch_workspace
     @workspace = params[:workspace]
     @authors = Author.all

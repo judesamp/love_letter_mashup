@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   resources :password_resets
 
   resources :letters do
+    patch "add_or_subtract_snippet"
+    get 'retrieve_letter'
 
     collection do
       get "letter_admin"
+      post "create_with_snippet"
     end
 
   end

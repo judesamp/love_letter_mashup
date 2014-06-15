@@ -40,8 +40,36 @@ $ ->
 
   $(document).on 'click', '.letter_view', (e) ->
     e.preventDefault();
+    letter_id = $('.snippet_view_workspace').attr('id');
+    
+    unless letter_id == "false"
+      $.ajax ({
+        url: letter_id + '/retrieve_letter',
+        type: 'GET'
+      });
     $(".snippet_view_workspace").hide "slide", { direction: "right" }, 600, ->
       $(".letter_view_workspace").show "slide", { direction: "left" }, 600
        
     
+  $(document).on 'click', ':checkbox', (e) ->
+    #e.preventDefault();
+    snippet_id = $(this).attr('data-snippet-id');
+    checked = $(this).prop('checked');
+    letter = $('.snippet_view_workspace').attr('id');
 
+    if letter == "false"
+      $.ajax ({
+        url: 'create_with_snippet',
+        type: 'POST',
+        data: { "letter": { "snippet_id": snippet_id, "checked": checked } }
+      });
+
+    else 
+      $.ajax ({
+        url: letter + '/add_or_subtract_snippet',
+        type: 'PATCH',
+        data: { "snippet": { "snippet_id": snippet_id, "checked": checked } }
+      });
+
+
+    
