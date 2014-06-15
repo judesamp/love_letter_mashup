@@ -11,6 +11,7 @@ class LettersController < ApplicationController
     @next_letter = Letter.limit(1).offset(@offset + 1).first
     @current_user_id = current_user.id.to_s
     @current_letter_id = @current_letter.id.to_s
+
     if @offset == 0
       @previous_letter = nil
     else
@@ -31,6 +32,8 @@ class LettersController < ApplicationController
 
   def switch_workspace
     @workspace = params[:workspace]
+    @authors = Author.all
+    @images = ['Book.png', 'Communication.png', 'Compass.png', 'Cut.png', 'Download.png', 'Envelope.png', 'Eye.png', 'Hourglass.png', 'Key.png', 'Lighthouse.png', 'Locator.png', 'map_with_locator.png', 'Mountain.png', 'Note.png', 'Pencil.png', 'Picture.png', 'Search.png', 'sound_wave.png', 'Volume.png']
     if @workspace == "full_letter_workspace"
       @offset = 0
       @current_letter = Letter.first

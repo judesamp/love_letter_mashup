@@ -22,6 +22,26 @@ $ ->
     $('.send_letter_modal').fadeIn();
     $('#fade').fadeIn();
 
-  
+  $(document).on 'click', '#fade_instructions', ->
+      $("#fade_instructions").hide();
+      $(".modal_custom_instructions").hide();
+
+  $(document).on 'click', '.close_instructions', ->
+      $("#fade_instructions").hide();
+      $(".modal_custom_instructions").hide();
+
+  $(document).on 'click', ->
+    $('.gritter-item').fadeOut('slow');
+
+  $(document).on 'click', '.snippet_view', (e) ->
+    e.preventDefault();
+    $(".letter_view_workspace").hide "slide", { direction: "right" }, 600, -> 
+      $(".snippet_view_workspace").show "slide", { direction: "left" }, 600
+
+  $(document).on 'click', '.letter_view', (e) ->
+    e.preventDefault();
+    $(".snippet_view_workspace").hide "slide", { direction: "right" }, 600, ->
+      $(".letter_view_workspace").show "slide", { direction: "left" }, 600
+       
     
 

@@ -13,6 +13,16 @@ Rails.application.routes.draw do
 
   end
 
+  resources :snippets do
+
+    collection do
+      get "snippet_admin"
+    end
+
+  end
+
+
+
 
   resources :authors
   resources :letter_orders do
