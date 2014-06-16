@@ -17,7 +17,7 @@ First choose how to send your love letter. You will have a chance to review your
     = form_for LetterOrder.new do |f|
       %br
       %legend Letter Details
-      = f.hidden_field :letter_id, value: @current_letter.id
+      = f.hidden_field :letter_id, value: letter.id
       = f.hidden_field :user_id, value: current_user.id
       = f.hidden_field :delivery_type, value: "email"
       
@@ -40,7 +40,7 @@ First choose how to send your love letter. You will have a chance to review your
     %br
     = form_for LetterOrder.new do |f|
       
-      = f.hidden_field :letter_id, value: @current_letter.id
+      = f.hidden_field :letter_id, value: letter.id
       = f.hidden_field :user_id, value: current_user.id
       = f.hidden_field :delivery_type, value: "snail"
 

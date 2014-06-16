@@ -1,0 +1,37 @@
+.container
+  %h1 Snippet Admin
+
+  %br
+
+
+  .col-lg-6.col-md-6
+    %h4 Enter a Snippet
+    = form_for Snippet.new do |f|
+
+      = f.label :author
+      = f.select :author_id, Author.all.collect {|a| [ "#{a.first_name} #{a.last_name}", a.id ] }, class: 'form-control'
+      %br
+      = f.label :content
+      = f.text_area :content, :cols => 40, :rows => 15, class: 'form-control'
+      %br
+      = f.submit
+
+  .col-lg-6.col-md-6
+    %h4 Enter an Author
+    = form_for Author.new do |f|
+      = f.label :first_name
+      = f.text_field :first_name, class: 'form-control'
+      %br
+      = f.label :last_name
+      = f.text_field :last_name, class: 'form-control'
+      %br
+      = f.label :bio
+      = f.text_area :bio, class: 'form-control'
+      %br
+      = f.label :author_image
+      = f.file_field :author_image, class: 'form-control'
+      %br
+      = f.submit
+
+%br
+%br

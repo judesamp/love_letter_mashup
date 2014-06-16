@@ -1,1 +1,81 @@
-letter genie
+= link_to "Back", new_letter_path, class: "btn-primary btn workspace_back floating_nav"
+= link_to "Send", new_letter_path, class: "btn-primary btn send_letter_button top_right floating_nav"
+
+
+.row
+  .container
+    .col-lg-10.col-md-10.col-lg-offset-1.col-md-offset-1.main_content
+      %h3.centered.genie_title Cyrano-bot
+      %p.centered Answer a few questions and our cyrano-bot will create a love letter to beat all love letters.
+      .quiz_content
+        .letter_nav
+          = link_to "Click to Start", root_path, remote: true, class: "btn-default btn direction_button btn-primary"
+      
+      
+        = form_tag create_with_quiz_letters_path, remote: true do
+          .part_1
+            = label_tag "This is my question."
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-primary.answer
+                = radio_button_tag :question_1, "A"
+                Option 1
+              %label.btn.btn-primary.answer
+                = radio_button_tag :question_1, "B"
+                Option 2
+              %label.btn.btn-primary.answer
+                = radio_button_tag :question_1, "C"
+                Option 3
+          .part_2
+            = label_tag "This is my question."
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-primary
+                = radio_button_tag :question_2, "A"
+                Option 1
+              %label.btn.btn-primary
+                = radio_button_tag :question_2, "B"
+                Option 2
+              %label.btn.btn-primary
+                = radio_button_tag :question_2, "C"
+                Option 3
+          .part_3
+            = label_tag "This is my question."
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-primary
+                = radio_button_tag :question_3, "A"
+                Option 1
+              %label.btn.btn-primary
+                = radio_button_tag :question_3, "B"
+                Option 2
+              %label.btn.btn-primary
+                = radio_button_tag :question_3, "C"
+                Option 3
+          .part_4
+            = label_tag "This is my question."
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-primary
+                = radio_button_tag :question_4, "A"
+                Option 1
+              %label.btn.btn-primary
+                = radio_button_tag :question_4, "B"
+                Option 2
+              %label.btn.btn-primary
+                = radio_button_tag :question_4, "C"
+                Option 3
+          .part_5
+            = label_tag "This is my question."
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-primary
+                = radio_button_tag :question_5, "A"
+                Option 1
+              %label.btn.btn-primary
+                = radio_button_tag :question_5, "B"
+                Option 2
+              %label.btn.btn-primary
+                = radio_button_tag :question_5, "C"
+                Option 3
+          = submit_tag "Submit"
+
+
+
+        .send_letter_modal.modal_custom
+          = render "letters/send_letter_modal", letter: @current_letter

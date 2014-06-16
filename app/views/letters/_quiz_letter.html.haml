@@ -1,0 +1,18 @@
+%h1
+  Dearest [Recipient Name Here],
+
+%p
+  = simple_format(letter.content)
+%p
+  Love,
+%p 
+  Your Name Here!
+
+%br
+
+= link_to "Review and Send Letter", new_letter_path, class: "btn-primary btn btn-block send_letter_button col-lg-12 col-md-12"
+
+.send_letter_modal.modal_custom
+  = render "letters/send_letter_modal", letter: letter
+
+
