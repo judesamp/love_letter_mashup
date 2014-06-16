@@ -171,11 +171,13 @@
   padding: 11px;
   position: relative;
   bottom: 10px;
+  min-width:328px;
 }
 
 .snippet_view_workspace {
   padding-left: 45px;
   margin-top: 40px;
+  min-width:320px;
 }
 
 .widen {
@@ -187,3 +189,17 @@
   position: relative;
   bottom: 15px;
 }
+
+.author_snippets {
+  width: 375px;
+}
+
+.snippet_title {
+  width: 350px;
+}
+
+.genie_title {
+  margin-top: 0;
+}
+
+

@@ -13,11 +13,11 @@
       
 
       .letter_view_workspace
-        arrange letter here
+        Add some snippets and then sort them here.
 
-      .snippet_view_workspace{ id: 'false' }
+      .snippet_view_workspace{ id: 'false', data: {"letter-id" => @current_letter.id } }
         - @authors.each do |author|
-          .row
+          .row.snippet_title
             .col-lg-1.col-md-1.col-sm-1
               = image_tag @images.sample, class: 'snippet_image'
             .col-lg-7.col-md-7.col-sm-7.col-lg-offset-1.col-md-offset-1.col-sm-offset-1
@@ -30,12 +30,19 @@
                   = check_box_tag snippet.id, snippet.id, false, data: { "snippet-id" => snippet.id }
 
 
-                .col-lg-9.col-md-9.col-sm-9
+                .col-lg-9.col-md-9.col-sm-9.snippet_content
                   = snippet.content 
 
                 
           %br
           %br
+
+= link_to "Review and Send Letter", root_path, class: "btn-primary btn btn-block send_snippet_letter_button col-lg-12 col-md-12"
+
+
+.send_letter_modal.modal_custom
+  = render "letters/send_letter_modal", letter: @current_letter
+
 
             
                   
