@@ -24,9 +24,7 @@ gem 'prawn'
 gem 'httparty'
 gem 'lob'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
-# Use debugger
-gem 'debugger', group: [:development, :test]
+gem 'bootswatch-rails'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -1,7 +1,17 @@
 - author.snippets.each do |snippet|
-  .row.author_snippets{id: "author-id-#{author.id}"}
-    .col-lg-1.col-md-1.col-sm-1.col-lg-offset-2.col-md-offset-2.col-sm-offset-2
-      = check_box_tag snippet.id, snippet.id, letter.snippets.include?(snippet), data: { "snippet-id" => snippet.id }
-     
-    .col-lg-9.col-md-9.col-sm-9.snippet_content
-      = snippet.content 
+  .col-lg-2.col-md-2.col-sm-2
+    .btn-group{"data-toggle" => "buttons"}
+      %label.btn.btn-primary.answer
+        - if letter.snippets.include?(snippet)
+          = check_box_tag snippet.id, snippet.id, letter.snippets.include?(snippet), class: 'checkbox', data: { "snippet-id" => snippet.id }
+          Remove
+        - else
+          = check_box_tag snippet.id, snippet.id, letter.snippets.include?(snippet), class: 'checkbox', data: { "snippet-id" => snippet.id }
+          Add
+
+  .col-lg-10.col-md-10.col-sm-10
+    %h4.snippet_margin= snippet.content  
+
+  %br
+  %br
+  %br

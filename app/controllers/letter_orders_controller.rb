@@ -13,9 +13,9 @@ class LetterOrdersController < ApplicationController
   def show
     @letter_order = LetterOrder.find(params[:id])
     @letter = Letter.find(@letter_order.letter_id)
-    pdf = Prawn::Document.new
-    pdf.text "Hello World"
-    x = pdf.render_file 'test.pdf'
+    # pdf = Prawn::Document.new
+    # pdf.text "Hello World"
+    # x = pdf.render_file 'test.pdf'
        
     #deliver_as_snail_mail(@letter_order)
 

@@ -1,4 +1,6 @@
-$('.snippet_view_workspace').attr("id","<%= @letter.id %>");
-$('#author-id-<%= @snippet.author.id %>').html('');
-$('#author-id-<%= @snippet.author.id %>').html("<%= escape_javascript render(:partial => 'letters/snippet_list', :locals => { :author => @snippet.author, :letter => @letter })%>");
 
+$('.snippet_view_workspace').attr("id","<%= @letter.id %>");
+
+$('#author-id-<%= @snippet.author.id %>').html('');
+
+$('#author-id-<%= @snippet.author.id %>').html("<%= escape_javascript render(:partial => 'letters/snippet_list', :locals => { :author => @snippet.author, :letter => @letter })%>");

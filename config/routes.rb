@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
-  root "users#dashboard"
+  root "welcome#index"
 
   resources :users
+
   resources :password_resets
 
   resources :letters do
@@ -41,7 +42,6 @@ Rails.application.routes.draw do
   end
 
   
-  get "welcome" => "welcome#index"
   get "signup" => "users#new"
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   get "/signout" => "sessions#omniauth_destroy", :as => :signout
 
   get "switch" => "letters#switch_workspace"
+  get "dashboard" => "users#dashboard"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

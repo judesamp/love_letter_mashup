@@ -3,3 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
+$ ->
+
+  $(document).on 'click', '.signup_button', (e) ->
+    e.preventDefault();
+    $('.signup_modal').appendTo("body").fadeIn('slow');
+    $('#fade').fadeIn();
+

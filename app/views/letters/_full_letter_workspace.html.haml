@@ -8,14 +8,14 @@
 
       .letter_nav
         - if @previous_letter.present?
-          = link_to "Previous", letter_path(@previous_letter, offset: @offset - 1, direction: "previous"), remote: true, class: "btn-default btn direction_button"
+          = link_to "Previous", letter_path(@previous_letter, offset: @offset - 1, direction: "previous"), remote: true, class: "btn-default btn direction_button btn-primary"
         - else
-          = link_to "Previous", root_path, class: "btn-default btn disabled direction_button"
+          = link_to "Previous", root_path, class: "btn-default btn disabled direction_button btn-primary"
 
         - if @next_letter.present?
-          = link_to "Next", letter_path(@next_letter, offset: @offset + 1, direction: "next" ), remote: true, class: "btn-default btn direction_button"
+          = link_to "Next", letter_path(@next_letter, offset: @offset + 1, direction: "next" ), remote: true, class: "btn-default btn direction_button btn-primary"
         - else
-          = link_to "Next", root_path, class: "btn-default btn disabled direction_button"
+          = link_to "Next", root_path, class: "btn-default btn disabled direction_button btn-primary"
       
       .letter_content
         = render "letters/content"

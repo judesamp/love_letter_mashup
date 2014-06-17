@@ -43,7 +43,7 @@ class LettersController < ApplicationController
     letter_id = params[:letter_id].to_i
     snippet_id = params[:snippet][:snippet_id].to_i
     @snippet = Snippet.find(snippet_id)
-    if params[:snippet][:checked] == "true"
+    if params[:snippet][:checked] == "false"
       @letter = Letter.find(letter_id)
       snippet_count = @letter.snippets.count
       letter_snippet = LetterSnippet.new letter: @letter, snippet: @snippet, position: snippet_count + 1
@@ -154,7 +154,6 @@ class LettersController < ApplicationController
     elsif @workspace == "snippet_workspace"
       @current_letter = Letter.create
       current_user.letters << @current_letter
-      current_user.save #necessary?
     else
       @current_letter = Letter.new
     end

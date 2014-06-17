@@ -1,6 +1,7 @@
 %p Drag your snippets into the order you want them to appear in your letter.
 %br
-%ol.sortable
-	- letter.snippets.by_position.each do |snippet|
-		%li{data: { "snippet-id" => "#{snippet.id}", "letter-id" => "#{letter.id}"}}= snippet.content
+.col-lg-8.col-md-8.col-sm-8.col-lg-offset-2.col-md-offset-2.col-sm-offset-2
+	%ol.sortable
+		- letter.snippets.by_position.each do |snippet|
+			%li.well.center_width{data: { "snippet-id" => "#{snippet.id}", "letter-id" => "#{letter.id}"}}= snippet.content
 

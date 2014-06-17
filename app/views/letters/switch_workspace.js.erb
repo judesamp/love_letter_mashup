@@ -1,7 +1,5 @@
 var workspace = '<%= escape_javascript @workspace %>';
 
-alert(workspace);
-
 if (workspace == "snippet_workspace") {
 	$('.snippet_view_workspace').attr("data-letter-id","<%= @current_letter.id %>");
 }

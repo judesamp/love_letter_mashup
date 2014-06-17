@@ -15,10 +15,22 @@
  *= require jquery.ui.all
  *= require_tree .
  *= require_self
+ *= bootstrap.min
  */
 
 
-@import "bootstrap";
+body {
+  margin-top: 60px;
+}
+
+
+.glyphicon {
+  font-family:'Glyphicons Halflings' !important;
+  src:  url(font-path('glyphicons-halflings-regular.eot') + "?#iefix") format('embedded-opentype'),
+        url(font-path('glyphicons-halflings-regular.woff')) format('woff'), 
+        url(font-path('glyphicons-halflings-regular.ttf'))  format('truetype'),
+        url(font-path('glyphicons-halflings-regular.svg') + "#MyFont") format('svg');
+ }
 
 .centered {
   text-align: center;
@@ -29,10 +41,6 @@
 }
 
 .workspace_content {
-  min-height: 350px;
-  border: 1px solid #333333;
-  border-radius: 150px;
-  overflow: auto;
 }
 
 .navbar {
@@ -50,7 +58,6 @@
 }
 
 .send_letter_button_bottom {
-  
 }
 
 .top_right {
@@ -73,8 +80,6 @@
 }
 
 .workspace_content {
-  min-height: 350px;
-  overflow: auto;
 }
 
 .floating_nav {
@@ -165,8 +170,6 @@
 
 .author_name {
   margin-bottom: 5px;
-  border: 1px solid black;
-  border-radius: 150px;
   text-align: center;
   padding: 11px;
   position: relative;
@@ -191,15 +194,61 @@
 }
 
 .author_snippets {
-  width: 375px;
+  text-align: left;
 }
 
 .snippet_title {
-  width: 350px;
 }
 
 .genie_title {
   margin-top: 0;
+}
+
+.background_image {
+  background: url(cover_136637228.jpg) no-repeat 0 0; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 905px;
+}
+
+.red {
+  background-color: #760003;
+}
+
+.signup_modal {
+  z-index: 1031;
+}
+
+.workspace_background_image {
+  background: url(paper2_114501982.jpg) no-repeat 0 0; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 905px;
+}
+
+.snippet_content {
+  position: relative;
+  top: -3px;
+}
+
+.snippet_margin {
+  margin-left: 20px;
+}
+
+.inline_title {
+  display: inline;
+}
+
+.send_snippet_letter_button {
+  width: 189px;
+  height: 45px;
+  position: fixed;
+  right: 20px;
+  top: 73px;
 }
 
 

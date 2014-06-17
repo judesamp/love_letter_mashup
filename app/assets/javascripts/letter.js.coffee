@@ -1,5 +1,5 @@
 $ ->
-  
+
   $(document).on 'click', '#fade', ->
     $("#fade").hide();
     $(".modal_custom").hide();
@@ -69,10 +69,11 @@ $ ->
 
 
         
-  $(document).on 'click', ':checkbox', (e) ->
+  $(document).on 'click', '.answer', (e) ->
     #e.preventDefault();
-    snippet_id = $(this).attr('data-snippet-id');
-    checked = $(this).prop('checked');
+    checkbox = $(this).children('input[type=checkbox]')
+    snippet_id = $(checkbox).attr('data-snippet-id');
+    checked = $(checkbox).prop('checked');
     letter = $('.snippet_view_workspace').attr('id');
     initial_value = $('.snippet_view_workspace').attr('data-letter-id');
 
@@ -83,7 +84,7 @@ $ ->
         data: { "letter": { "snippet_id": snippet_id, "letter_id": initial_value } }
       });
 
-    else 
+    else
       $.ajax ({
         url: letter + '/add_or_subtract_snippet',
         type: 'PATCH',
@@ -103,6 +104,6 @@ $ ->
       $('#fade').fadeIn();
 
   $(document).on 'click', '.answer', (e) ->
-    alert 'answer'
+
 
     
