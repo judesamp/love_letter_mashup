@@ -9,7 +9,9 @@ if (workspace == "snippet_workspace") {
 $('.main_content').hide("slide", { direction: "right" }, 600, function() {
 
   $('.main_content').html("");
+  $('.workspace_background_image').css("background-image", '')
   $('.main_content').html('<%= escape_javascript render(:partial => "letters/#{@workspace}")%>');
+  $('.workspace_background_image').css("background-image", '<%= asset_path("paper_it.png") %>')
   $('.workspace_buttons').fadeOut();
   
 }).delay(600);
@@ -23,8 +25,6 @@ $('.main_content').show("slide", { direction: "left" }, 600, function() {
 		<%= add_gritter("Choose the snippets you want to include, then arrange them in the order you want them to appear in your letter.", :title => "Instructions", :sticky => true) %>
 	}
 
-
-	
 });
 
     

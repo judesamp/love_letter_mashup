@@ -30,6 +30,9 @@ First choose how to send your love letter. You will have a chance to review your
       = f.label :signature
       = f.text_field :signature, class: 'form-control'
       %br
+      = f.label :short_customized_message
+      = f.text_field :custom_message, class: 'form-control'
+      %br
       / = f.label :type
       / = f.select :type, [ "email", "snail_mail", "postcoard" ], { :include_blank => false }, class: 'form-control'
       
@@ -51,6 +54,9 @@ First choose how to send your love letter. You will have a chance to review your
       %br
       = f.label :signature
       = f.text_field :signature, class: 'form-control'
+      %br
+      = f.label :short_customized_message
+      = f.text_field :custom_message, class: 'form-control'
       %br
 
       %legend Address Details

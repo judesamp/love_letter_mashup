@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
   
-  root "welcome#index"
+  root 'welcome#index'
 
   resources :users
 
   resources :password_resets
 
   resources :letters do
-    patch "add_or_subtract_snippet"
+    patch 'add_or_subtract_snippet'
     get 'retrieve_letter'
     patch 'update_positions'
     patch 'build_snippet_letter'
 
     collection do
-      get "letter_admin"
-      post "create_with_snippet"
-      post "create_with_quiz"
+      get 'letter_admin'
+      post 'create_with_snippet'
+      post 'create_with_quiz'
     end
 
   end
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :snippets do
 
     collection do
-      get "snippet_admin"
+      get 'snippet_admin'
     end
 
   end
@@ -34,18 +34,19 @@ Rails.application.routes.draw do
   resources :authors
   resources :letter_orders do
     member do
-      get "deliver_as_email"
-      get "checkout"
-      post "charge_create"
-      get "deliver_as_snail"
+      get 'deliver_as_email'
+      get 'checkout'
+      post 'charge_create'
+      get 'deliver_as_snail'
+      get 'cancel'
     end
   end
 
   
-  get "signup" => "users#new"
-  get "login" => "sessions#new"
-  get "logout" => "sessions#destroy"
-  post "sessions" => "sessions#create"
+  get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
+  post 'sessions' => 'sessions#create'
 
 
   # get "auth/facebook" => "auth#facebook"
@@ -54,11 +55,11 @@ Rails.application.routes.draw do
   # get "auth/twitter" => "auth#twitter"
   # get "auth/twitter/callback" => "auth#twitter_callback"
 
-  get "/auth/:provider/callback" => "sessions#omniauth_create"
-  get "/signout" => "sessions#omniauth_destroy", :as => :signout
+  get '/auth/:provider/callback' => 'sessions#omniauth_create'
+  get '/signout' => 'sessions#omniauth_destroy', :as => :signout
 
-  get "switch" => "letters#switch_workspace"
-  get "dashboard" => "users#dashboard"
+  get 'switch' => 'letters#switch_workspace'
+  get 'dashboard' => 'users#dashboard'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -27,6 +27,10 @@ class LetterOrdersController < ApplicationController
         pdf.text "Dearest #{@letter_order.recipient_name},"
         pdf.move_down 15
         pdf.text @letter.content
+        pdf.move_down 15
+        if @letter_order.custom_message.present?
+          pdf.text @letter_order.custom_message
+        end
         pdf.text "\nAll my love,\n"
         pdf.text "#{@letter_order.signature}"
         send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
@@ -105,9 +109,20 @@ class LetterOrdersController < ApplicationController
     #from response, save job order id to letter_order in database
   end
 
+  def cancel
+    @letter_order = LetterOrder.find(params[:id])
+    @letter = Letter.find(@letter_order.letter_id)
+    if @letter_order.delete && @letter.delete
+      redirect_to new_letter_path
+    else
+      gflash notice: "Something went wrong. Try again or click a link in the navbar at the top of this page."
+      redirect_to :back
+    end
+  end
+
   private
 
   def letter_order_params
-    params.require(:letter_order).permit(:recipient_email, :recipient_name, :type, :signature, :letter_id, :user_id, :delivery_type, :address_line_1, :address_line_2, :city, :state, :zip_code)
+    params.require(:letter_order).permit(:recipient_email, :recipient_name, :type, :signature, :letter_id, :user_id, :delivery_type, :address_line_1, :address_line_2, :city, :state, :zip_code, :custom_message)
   end
 end

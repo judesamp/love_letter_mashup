@@ -23,6 +23,7 @@ class Ability
 
         can :show, LetterOrder, :user_id => user.id
         can :create, LetterOrder, :user_id => user.id
+        can :cancel, LetterOrder, :user_id => user.id
         can :checkout, LetterOrder, :user_id => user.id
         can :charge_create, LetterOrder, :user_id => user.id
         can :deliver_as_email, LetterOrder, :user_id => user.id

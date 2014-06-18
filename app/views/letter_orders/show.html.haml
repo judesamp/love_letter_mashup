@@ -1,36 +1,42 @@
-.container
-  .row
+.pad_the_top
+.workspace_background_image
+  .container
+    .row
 
-    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
 
-      .show_letter_text
+        .show_letter_text
+          %br
+          .row
+            .col-lg-8.col-md-8.col-sm-8
+              Here is your letter. Click 'Start Over' to discard this letter and start again or choose an options at the bottom of the page to send your love letter.
+            .col-lg-4.col-md-4.col-sm-4
+              = button_to "Start Over", cancel_letter_order_path(@letter_order), method: :get, class: "btn-primary btn edit_button_wide"
+          
+          %hr.letter_order_hr
+
+          %b This letter is being sent to:
+          = @letter_order.recipient_email
+
+          %h1
+            Dearest #{@letter_order.recipient_name},
+          
+          %p
+            = simple_format(@letter.content)
+
+          - if @letter_order.custom_message.present?
+            %p
+              = simple_format(@letter_order.custom_message)
+          
+          %p
+            Love,
+          %p 
+            #{@letter_order.signature}
+
         %br
-        .row
-          .col-lg-8.col-md-8.col-sm-8
-            Here is your letter. Click 'Edit' to change something or choose one of the options at the bottom of the page to send your love letter.
-          .col-lg-4.col-md-4.col-sm-4
-            = link_to "Edit", new_letter_path, class: "btn-primary btn edit_button_wide"
-        
-        %hr
-
-        %b This letter is being sent to:
-        = @letter_order.recipient_email
-
-        %h1
-          Dearest #{@letter_order.recipient_name},
-        
-        %p
-          = simple_format(@letter.content)
-        
-        %p
-          Love,
-        %p 
-          #{@letter_order.signature}
-
-      %br
-      .col-lg-8.col-md-8.col-sm-8.col-md-offset-2.col-sm-2.col-sm-offset-2
-        - if @letter_order.delivery_type == "snail"
-          = link_to "Send Letter", checkout_letter_order_path(@letter_order), class: "btn-primary btn btn-block"
-        - else
-          = link_to "Send Email", deliver_as_email_letter_order_path(@letter_order), class: "btn-primary btn btn-block"
+        .col-lg-8.col-md-8.col-sm-8.col-md-offset-2.col-sm-2.col-sm-offset-2
+          - if @letter_order.delivery_type == "snail"
+            = link_to "Send Letter", checkout_letter_order_path(@letter_order), class: "btn-primary btn btn-block"
+          - else
+            = link_to "Send Email", deliver_as_email_letter_order_path(@letter_order), class: "btn-primary btn btn-block"
 

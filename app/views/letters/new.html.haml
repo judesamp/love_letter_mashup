@@ -1,26 +1,23 @@
-.workspace_background_image 
-  .workspace_buttons.workspace_nav
+.workspace_holder
+  .workspace_background_image 
+    .workspace_buttons.workspace_nav
+      .col-lg-8.col-md-8.col-sm-8.col-lg-offset-2.col-md-offset-2.col-sm-offset-2
+
+        %h2.pad_the_top.centered Welcome to LoveLetterMashup. Mash and send your letter now!
+        %br
+        .the_workspace_div
+          .col-lg-4.col-md-4.col-sm-4
+            = link_to "LetterMash", switch_path(workspace: "snippet_workspace"), remote: true, class: "btn-default btn btn-block btn-primary"
+            
+
+          .col-lg-4.col-md-4.col-sm-4
+            = link_to "Famous Love Letters", switch_path(workspace: "full_letter_workspace"), remote: true, class: "btn-default btn btn-block btn-primary"
+            
+
+          .col-lg-4.col-md-4.col-sm-4 
+            = link_to "Cyrano de Robot", switch_path(workspace: "letter_genie_workspace"), remote: true, class: "btn-default btn btn-block btn-primary"
     
-    %br
-    .col-lg-8.col-md-8.col-sm-8.col-lg-offset-2.col-md-offset-2.col-sm-offset-2
-
-      %h2.centered Welcome to LoveLetterMashup. Mash and send your letter now!
-      %br
-      .row
-        .col-lg-4.col-md-4.col-sm-4
-          = link_to "LetterMash", switch_path(workspace: "snippet_workspace"), remote: true, class: "btn-default btn btn-block btn-primary"
-          
-
-        .col-lg-4.col-md-4.col-sm-4
-          = link_to "Famous Love Letters", switch_path(workspace: "full_letter_workspace"), remote: true, class: "btn-default btn btn-block btn-primary"
-          
-
-        .col-lg-4.col-md-4.col-sm-4 
-          = link_to "Cyrano de Robot", switch_path(workspace: "letter_genie_workspace"), remote: true, class: "btn-default btn btn-block btn-primary"
-  .row
-    .container  
-      .main_content
-        .workspace_content
+    .main_content
      
 
 

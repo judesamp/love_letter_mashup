@@ -13,18 +13,19 @@
  *= require gritter
  *= require animate
  *= require jquery.ui.all
- 
  *= require_tree .
  *= require_self
  
  */
 
 
-body {
-  margin-top: 60px;
+html, body {
+  height: 100%;
 }
 
-
+body {
+  margin-top: 30px;
+}
 
 .glyphicon {
   font-family:'Glyphicons Halflings' !important;
@@ -41,9 +42,6 @@ body {
 
 .gray {
   background: gray;
-}
-
-.workspace_content {
 }
 
 .navbar {
@@ -139,7 +137,7 @@ body {
 
 .mash_title {
   padding-top: 0;
-  margin-top: 13px;
+  margin-top: 20px;
   margin-bottom: 4px;
 }
 
@@ -212,12 +210,9 @@ body {
 }
 
 .background_image {
-  background: url(<%= asset_path("cover.png") %>) no-repeat 0 0; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url(<%= asset_path("cover.png") %>) no-repeat 0 0;
   background-size: cover;
-  height: 905px;
+  height: 100%;
 }
 
 .red {
@@ -229,10 +224,22 @@ body {
 }
 
 .workspace_background_image {
-  background: url(<%= asset_path("cover.png") %>) no-repeat 0 0;  
-  height: 700px;
-  width: 100%;
+  background: url(<%= asset_path("paper_it.png") %>);
+  background-repeat: repeat-y;
+  padding: 0;
+  margin: 0;
+  height: 4000px;
 }
+
+.test_background_image {
+  background: url(<%= asset_path("paper_it.png") %>);
+  background-repeat: repeat-y;
+  padding: 0;
+  margin: 0;
+  background-size: 100% 100%; 
+}
+
+
 
 .snippet_content {
   position: relative;
@@ -295,10 +302,44 @@ body {
 
 .workspace {
   height: 100%;
-  overflow:auto;
 }
 
 .holder {
   margin-top: 10px;
+}
+
+.letter_order_hr {
+  border-top: 3px solid #2C3E50;
+}
+
+.letter_table {
+  background: white;;
+}
+
+.workspace_contain {
+  height: 100%;
+  overflow:hidden;
+}
+
+.top_margin {
+  margin-top: 50px;
+}
+
+.cover_div {
+  padding-top: 1px;
+  padding-left: 40%;
+  padding-right: 5%;
+}
+
+.pad_the_top {
+  padding-top: 25px;
+}
+
+.workspace_holder {
+  height: 100%;
+}
+
+.social {
+  width: 300px;
 }
 
