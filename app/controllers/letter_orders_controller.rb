@@ -1,4 +1,5 @@
 class LetterOrdersController < ApplicationController
+  load_and_authorize_resource
 
   def create
     @letter_order = LetterOrder.new(letter_order_params)

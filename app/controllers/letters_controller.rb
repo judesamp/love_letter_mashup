@@ -1,14 +1,15 @@
 class LettersController < ApplicationController
+  load_and_authorize_resource
 
   def index
-    @letters = current_user.letters.all
+    @letters = current_user.letters.where("content is Not NULL")
   end
 
   def show
     @offset = params[:offset].to_i
     @direction = params[:direction]
-    @current_letter = Letter.limit(1).offset(@offset).first
-    @next_letter = Letter.limit(1).offset(@offset + 1).first
+    @current_letter = Letter.where("author_id is Not NULL").limit(1).offset(@offset).first
+    @next_letter = Letter.where("author_id is Not NULL").limit(1).offset(@offset + 1).first
     @current_user_id = current_user.id.to_s
     @current_letter_id = @current_letter.id.to_s
 
@@ -31,13 +32,11 @@ class LettersController < ApplicationController
   end
 
   def create_with_snippet
-    puts params
     @letter = Letter.find(params[:letter][:letter_id])
     @snippet = Snippet.find(params[:letter][:snippet_id])
     letter_snippet = LetterSnippet.new letter: @letter, snippet: @snippet, position: 1
     letter_snippet.save
   end
-
 
   def add_or_subtract_snippet
     letter_id = params[:letter_id].to_i
@@ -51,6 +50,7 @@ class LettersController < ApplicationController
     else
       @letter = Letter.find(letter_id)
       @letter.snippets.delete(@snippet)
+      @letter.save
     end
   end
 
@@ -150,7 +150,7 @@ class LettersController < ApplicationController
       @offset = 0
       @current_letter = Letter.first
       @previous_letter = nil
-      @next_letter = Letter.limit(1).offset(0)[0]
+      @next_letter = Letter.where("author_id is Not NULL").limit(1).offset(0)[0]
     elsif @workspace == "snippet_workspace"
       @current_letter = Letter.create
       current_user.letters << @current_letter

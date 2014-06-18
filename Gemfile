@@ -25,6 +25,8 @@ gem 'httparty'
 gem 'lob'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'bootswatch-rails'
+gem 'rolify'
+gem 'cancancan', '~> 1.8'
 
 group :development, :test do
   gem 'rspec-rails'

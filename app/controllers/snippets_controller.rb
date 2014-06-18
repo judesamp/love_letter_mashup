@@ -1,4 +1,5 @@
 class SnippetsController < ApplicationController
+	load_and_authorize_resource
 
 	def create
 		@snippet = Snippet.new(snippet_params)

@@ -1,7 +1,7 @@
 - author.snippets.each do |snippet|
   .col-lg-2.col-md-2.col-sm-2
     .btn-group{"data-toggle" => "buttons"}
-      %label.btn.btn-primary.answer
+      %label.btn.btn-primary.answer.snippet_button
         - if letter.snippets.include?(snippet)
           = check_box_tag snippet.id, snippet.id, letter.snippets.include?(snippet), class: 'checkbox', data: { "snippet-id" => snippet.id }
           Remove

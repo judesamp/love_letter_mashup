@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    gflash notice: "You're not allowed to do that!"
+    redirect_to root_url
+  end
+
 end

@@ -1,0 +1,34 @@
+.row
+  .container
+    .col-lg-10.col-md-10.col-lg-offset-1.col-md-offset-1
+      %br
+      %h2.inline_title Your Letters
+      = link_to "Create A New Letter", new_letter_path, class: "btn-primary btn btn-default float_right"
+      %br
+      %br
+      - if @letters.present?
+        .row
+          %table.table.table-striped.table-bordered
+            %thead
+              %tr
+                %th Send Again
+                %th Your Letters 
+
+            %tbody
+              - @letters.each do |letter|
+                %tr
+                  %td= button_to "Review and Send", new_letter_path, class: "btn-primary btn btn-block send_letter_button col-lg-12 col-md-12"
+                  %td= truncate(letter.content, length: 200)
+                .send_letter_modal.modal_custom
+                  = render "letters/send_letter_modal", letter: letter
+
+      -else
+        %br
+        %br
+        .col-lg-8.col-md-8.col-sm-8.col-lg-offset-2.col-md-offset-2.col-sm-offset-2
+          .well
+            %h3.centered You don't have any letters here yet! 
+            %br
+            %h4 Get started by clicking the 'Create a New Letter' Button at the top of this page.
+
+        
