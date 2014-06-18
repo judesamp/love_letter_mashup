@@ -13,7 +13,7 @@
  *= require gritter
  *= require animate
  *= require jquery.ui.all
- *= bootstrap.min
+ 
  *= require_tree .
  *= require_self
  
@@ -26,11 +26,13 @@ body {
 
 
 
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url(asset_path('glyphicons-halflings-regular.eot'));
-  src: url(asset_path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'), url(asset_path('glyphicons-halflings-regular.woff')) format('woff'), url(asset_path('glyphicons-halflings-regular.ttf')) format('truetype'), url(asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
-}
+.glyphicon {
+  font-family:'Glyphicons Halflings' !important;
+  src:  url(font-path('glyphicons-halflings-regular.eot') + "?#iefix") format('embedded-opentype'),
+        url(font-path('glyphicons-halflings-regular.woff')) format('woff'), 
+        url(font-path('glyphicons-halflings-regular.ttf'))  format('truetype'),
+        url(font-path('glyphicons-halflings-regular.svg') + "#MyFont") format('svg');
+ }
 
 
 .centered {
@@ -183,7 +185,7 @@ body {
 
 .snippet_view_workspace {
   padding-left: 45px;
-  padding-top: 40px;
+  padding-top: 30px;
   min-height: 700px;
 }
 
@@ -227,13 +229,9 @@ body {
 }
 
 .workspace_background_image {
-  background: url(<%= asset_path("paper.png") %>) no-repeat 0 0; 
-  background-repeat:repeat-y;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 905px;
+  background: url(<%= asset_path("cover.png") %>) no-repeat 0 0;  
+  height: 700px;
+  width: 100%;
 }
 
 .snippet_content {
@@ -293,5 +291,14 @@ body {
 .red_button:hover, .red_button:focus, .red_button:active, .red_button.active, .open .dropdown-toggle.btn-primary {
   background-color: red;
   border-color: red;
+}
+
+.workspace {
+  height: 100%;
+  overflow:auto;
+}
+
+.holder {
+  margin-top: 10px;
 }
 

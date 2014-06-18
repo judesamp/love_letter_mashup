@@ -49,8 +49,6 @@ GEM
     bcrypt (3.1.7)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
-    bootswatch-rails (0.5.0)
-      railties (>= 3.1)
     builder (3.2.2)
     cancancan (1.8.1)
     capybara (2.2.1)
@@ -283,7 +281,6 @@ DEPENDENCIES
   animate-rails
   bcrypt (~> 3.1.7)
   bootstrap-sass
-  bootswatch-rails
   cancancan (~> 1.8)
   capybara
   coffee-rails (~> 4.0.0)

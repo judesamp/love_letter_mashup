@@ -41,7 +41,7 @@ $ ->
   $(document).on 'click', '.letter_view', (e) ->
     e.preventDefault();
     letter_id = $('.snippet_view_workspace').attr('id');
-    
+
     unless letter_id == "false"
       $.ajax ({
         url: letter_id + '/retrieve_letter',
