@@ -63,7 +63,6 @@ class LettersController < ApplicationController
       letter_snippet.position = position
       letter_snippet.save
     end
-    render nothing: true
   end
 
   def create_with_quiz
