@@ -1,5 +1,5 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * This is a file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
@@ -13,14 +13,19 @@
  *= require gritter
  *= require animate
  *= require jquery.ui.all
+ *= bootstrap.min
  *= require_tree .
  *= require_self
- *= bootstrap.min
+ 
  */
 
 
 html, body {
   height: 100%;
+  background: url(<%= asset_path("paper_it.png") %>);
+  background-repeat: repeat-y;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -29,10 +34,10 @@ body {
 
 .glyphicon {
   font-family:'Glyphicons Halflings' !important;
-  src:  url(font-path('glyphicons-halflings-regular.eot') + "?#iefix") format('embedded-opentype'),
-        url(font-path('glyphicons-halflings-regular.woff')) format('woff'), 
-        url(font-path('glyphicons-halflings-regular.ttf'))  format('truetype'),
-        url(font-path('glyphicons-halflings-regular.svg') + "#MyFont") format('svg');
+  src:  url(font-path("<%= asset_path('glyphicons-halflings-regular.eot') %>") + "?#iefix") format('embedded-opentype'),
+        url(font-path("<%= asset_path('glyphicons-halflings-regular.woff') %>")) format('woff'), 
+        url(font-path("<%= asset_path('glyphicons-halflings-regular.ttf') %>"))  format('truetype'),
+        url(font-path("<%= asset_path('glyphicons-halflings-regular.svg') %>") + "#MyFont") format('svg');
  }
 
 .centered {
@@ -223,22 +228,8 @@ body {
 }
 
 .workspace_background_image {
-  background: url(<%= asset_path("paper_it.png") %>);
-  background-repeat: repeat-y;
-  padding: 0;
-  margin: 0;
-  height: 4000px;
+  
 }
-
-.test_background_image {
-  background: url(<%= asset_path("paper_it.png") %>);
-  background-repeat: repeat-y;
-  padding: 0;
-  margin: 0;
-  background-size: 100% 100%; 
-}
-
-
 
 .snippet_content {
   position: relative;
