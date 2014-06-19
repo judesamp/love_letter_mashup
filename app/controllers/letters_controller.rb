@@ -151,6 +151,8 @@ class LettersController < ApplicationController
       @previous_letter = nil
       @next_letter = Letter.where("author_id is Not NULL").limit(1).offset(0)[0]
     elsif @workspace == "snippet_workspace"
+      @authors = Author.joins(:snippets).where('snippets is not null').uniq
+      puts @authors
       @current_letter = Letter.create
       current_user.letters << @current_letter
     else
