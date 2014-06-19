@@ -147,7 +147,7 @@ class LettersController < ApplicationController
     @images = ['Book.png', 'Communication.png', 'Compass.png', 'Cut.png', 'Download.png', 'Envelope.png', 'Eye.png', 'Hourglass.png', 'Key.png', 'Lighthouse.png', 'Locator.png', 'map_with_locator.png', 'Mountain.png', 'Note.png', 'Pencil.png', 'Picture.png', 'Search.png', 'sound_wave.png', 'Volume.png']
     if @workspace == "full_letter_workspace"
       @offset = 0
-      @current_letter = Letter.first
+      @current_letter = Letter.where("author_id is Not NULL").first
       @previous_letter = nil
       @next_letter = Letter.where("author_id is Not NULL").limit(1).offset(0)[0]
     elsif @workspace == "snippet_workspace"
