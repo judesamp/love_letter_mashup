@@ -75,70 +75,64 @@ class LettersController < ApplicationController
     process_question_return_snippet(4, params[:question_4], @letter)
     process_question_return_snippet(5, params[:question_5], @letter)
     build_quiz_letter(@letter)
+    puts @letter.snippets.inspect
   end
 
   def process_question_return_snippet(question, answer, letter)
-    snippet_array = []
-    Snippet.all.each do |snippet|
-      snippet_array << snippet
-    end
-
-    snippet_array.shuffle!
-
     case question
     when 1
       if answer == "A"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       else
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       end
     when 2
       if answer == "A"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       else
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       end
     when 3
       if answer == "A"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       else
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       end
     when 4
       if answer == "A"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       else
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       end
     else
       if answer == "A"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       else
-        snippet = snippet_array.pop
+        snippet = set_snippet(letter)
         letter.snippets << snippet
       end
     end
@@ -165,6 +159,16 @@ class LettersController < ApplicationController
     else
       @current_letter = Letter.new
     end
+  end
+
+  def set_snippet(letter)
+    snippet = nil
+    loop do
+      puts 'here'
+      snippet = Snippet.all.sample
+      break unless letter.snippets.include? snippet 
+    end
+    snippet
   end
 
   def build_snippet_letter
