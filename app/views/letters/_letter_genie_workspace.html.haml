@@ -13,69 +13,76 @@
         = form_tag create_with_quiz_letters_path, remote: true do
           .part_1
             %h3 What word best describes your desired letter?
-            .answer_holder
+            .answer_holder.text-center
               .btn-group.center_this{"data-toggle" => "buttons"}
-                %label.btn.btn-primary.answer.red_button.first
+                %label.btn.btn-primary.quiz_answer.red_button.first
                   = radio_button_tag :question_1, "A"
                   Poetic
-                %label.btn.btn-primary.answer.red_button
+                %label.btn.btn-primary.quiz_answer.red_button
                   = radio_button_tag :question_1, "B"
                   Passionate
                 %label.btn.btn-primary.red_button
                   = radio_button_tag :question_1, "C"
                   Pathetic
-          .part_2
+          %br
+          .part_1
             %h3 On a scale of 1-3, how flowery do you want your letter to be?
-            .btn-group.center_this{"data-toggle" => "buttons"}
-              %label.btn.btn-primary.answer.first.red_button
-                = radio_button_tag :question_2, "A"
-                1
-              %label.btn.btn-primary.answer.red_button
-                = radio_button_tag :question_2, "B"
-                2
-              %label.btn.btn-primary.red_button
-                = radio_button_tag :question_2, "C"
-                3
-          .part_3
+            .answer_holder.text-center
+              .btn-group.center_this{"data-toggle" => "buttons"}
+                %label.btn.btn-primary.quiz_answer.first.red_button
+                  = radio_button_tag :question_2, "A"
+                  1
+                %label.btn.btn-primary.quiz_answer.red_button
+                  = radio_button_tag :question_2, "B"
+                  2
+                %label.btn.btn-primary.red_button
+                  = radio_button_tag :question_2, "C"
+                  3
+          %br
+          .part_1
             %h3 How long have you known this love letter's recipient?
             %br
-            .btn-group.centered{"data-toggle" => "buttons"}
-              %label.btn.btn-primary.answer.first.red_button
-                = radio_button_tag :question_3, "A"
-                Under 6 wks
-              %label.btn.btn-primary.answer.red_button
-                = radio_button_tag :question_3, "B"
-                6 wks to a year
-              %label.btn.btn-primary.red_button
-                = radio_button_tag :question_3, "C"
-                Forever
-          .part_4
+            .answer_holder.text-center
+              .btn-group.centered{"data-toggle" => "buttons"}
+                %label.btn.btn-primary.quiz_answer.first.red_button
+                  = radio_button_tag :question_3, "A"
+                  Under 6 wks
+                %label.btn.btn-primary.quiz_answer.red_button
+                  = radio_button_tag :question_3, "B"
+                  6 wks to a year
+                %label.btn.btn-primary.red_button
+                  = radio_button_tag :question_3, "C"
+                  Forever
+          %br
+          .part_1
             %h3 Which of the following flowers best represents your love?
             %br
-              .answer_holder
+              .answer_holder.text-center
                 .btn-group.center_this{"data-toggle" => "buttons"}
-                  %label.btn.btn-primary.answer.first.red_button
+                  %label.btn.btn-primary.quiz_answer.first.red_button
                     = radio_button_tag :question_4, "A"
                     Red Roses
-                  %label.btn.btn-primary.answer.red_button
+                  %label.btn.btn-primary.quiz_answer.red_button
                     = radio_button_tag :question_4, "B"
                     Black Roses
                   %label.btn.btn-primary.red_button
                     = radio_button_tag :question_4, "C"
                     Lilies
-          .part_5
+          %br
+          .part_1
             %h3 What do you most want to communitcate through your letter?
             %br
-            .btn-group{"data-toggle" => "buttons"}
-              %label.btn.btn-primary.answer.first.red_button
-                = radio_button_tag :question_5, "A"
-                Your feelings.
-              %label.btn.btn-primary.answer.red_button
-                = radio_button_tag :question_5, "B"
-                Your commitment.
-              %label.btn.btn-primary.red_button
-                = radio_button_tag :question_5, "C"
-                Your amusement.
+            .answer_holder.text-center
+              .btn-group{"data-toggle" => "buttons"}
+                %label.btn.btn-primary.quiz_answer.first.red_button
+                  = radio_button_tag :question_5, "A"
+                  Your feelings.
+                %label.btn.btn-primary.quiz_answer.red_button
+                  = radio_button_tag :question_5, "B"
+                  Your commitment.
+                %label.btn.btn-primary.red_button
+                  = radio_button_tag :question_5, "C"
+                  Your amusement.
           %br
           %br
           = submit_tag "Submit", :class => 'btn btn-default btn-block btn-danger'
