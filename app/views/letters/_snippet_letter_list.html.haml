@@ -3,11 +3,13 @@
 	= link_to "Send", root_path, class: "btn-warning btn send_snippet_letter_button"
 %br
 .col-lg-8.col-md-8.col-sm-8.col-lg-offset-2.col-md-offset-2.col-sm-offset-2
-	%ol.sortable.ui-sortable
+	%ol.sortable
 		- letter.snippets.by_position.each do |snippet|
 			%li.well.center_width{data: { "snippet-id" => "#{snippet.id}", "letter-id" => "#{letter.id}"}}= snippet.content
 
 = link_to "Review and Send Letter", root_path, class: "btn-warning btn btn-block send_snippet_letter_button col-lg-12 col-md-12"
 
+:javascript
+	$(".sortable").sortable();
 
 
