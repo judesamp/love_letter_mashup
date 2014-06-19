@@ -78,61 +78,67 @@ class LettersController < ApplicationController
   end
 
   def process_question_return_snippet(question, answer, letter)
-    all_snippets = Snippet.all
+    snippet_array = []
+    Snippet.all.each do |snippet|
+      snippet_array << snippet
+    end
+
+    snippet_array.shuffle!
+
     case question
     when 1
       if answer == "A"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       else
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       end
     when 2
       if answer == "A"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       else
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       end
     when 3
       if answer == "A"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       else
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       end
     when 4
       if answer == "A"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       else
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       end
     else
       if answer == "A"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       elsif answer == "B"
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       else
-        snippet = Snippet.all.sample
+        snippet = snippet_array.pop
         letter.snippets << snippet
       end
     end
