@@ -10,13 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- 
+ *= require gritter
  *= require animate
  *= require jquery.ui.all
  *= require_tree .
- *= require gritter
- *= bootstrap.min
  *= require_self
+ *= bootstrap.min
  */
 
 
@@ -30,10 +29,10 @@ body {
 
 .glyphicon {
   font-family:'Glyphicons Halflings' !important;
-  src:  font-url(font-path('glyphicons-halflings-regular.eot') + "?#iefix") format('embedded-opentype'),
-        font-url(font-path('glyphicons-halflings-regular.woff')) format('woff'), 
-        font-url(font-path('glyphicons-halflings-regular.ttf'))  format('truetype'),
-        font-url(font-path('glyphicons-halflings-regular.svg') + "#MyFont") format('svg');
+  src:  url(font-path('glyphicons-halflings-regular.eot') + "?#iefix") format('embedded-opentype'),
+        url(font-path('glyphicons-halflings-regular.woff')) format('woff'), 
+        url(font-path('glyphicons-halflings-regular.ttf'))  format('truetype'),
+        url(font-path('glyphicons-halflings-regular.svg') + "#MyFont") format('svg');
  }
 
 
