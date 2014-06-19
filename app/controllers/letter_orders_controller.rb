@@ -81,7 +81,7 @@ class LetterOrdersController < ApplicationController
     @letter_order = letter_order
     @letter = Letter.find(@letter_order.letter_id)
     user = User.find(@letter_order.user_id)
-    @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e") #change to ENV key
+    @lob = Lob(api_key: ENV['LOB_KEY']) #change to ENV key
     response = @lob.jobs.create(
       name: "Inline Test Job",
       from: {

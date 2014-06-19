@@ -78,6 +78,7 @@ class LettersController < ApplicationController
   end
 
   def process_question_return_snippet(question, answer, letter)
+    all_snippets = Snippet.all
     case question
     when 1
       if answer == "A"
