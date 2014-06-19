@@ -6,7 +6,7 @@ if (workspace == "snippet_workspace") {
 
 
 
-$('.main_content').hide("slide", { direction: "right" }, 600, function() {
+$('.main_content').hide("slide", { direction: "right" }, 800, function() {
 
   $('.main_content').html("");
   $('.workspace_background_image').css("background-image", '')
@@ -14,10 +14,10 @@ $('.main_content').hide("slide", { direction: "right" }, 600, function() {
   $('.workspace_background_image').css("background-image", '<%= asset_path("paper_it.png") %>')
   $('.workspace_buttons').fadeOut();
   
-}).delay(600);
+}).delay(300);
 
 
-$('.main_content').show("slide", { direction: "left" }, 600, function() {
+$('.main_content').show("slide", { direction: "left" }, 800, function() {
 	
   $('.floating_nav').fadeIn('slow');
 

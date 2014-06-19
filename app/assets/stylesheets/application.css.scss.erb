@@ -27,13 +27,15 @@ body {
   margin-top: 30px;
 }
 
+
 .glyphicon {
   font-family:'Glyphicons Halflings' !important;
-  src:  url(font-path('glyphicons-halflings-regular.eot') + "?#iefix") format('embedded-opentype'),
-        url(font-path('glyphicons-halflings-regular.woff')) format('woff'), 
-        url(font-path('glyphicons-halflings-regular.ttf'))  format('truetype'),
-        url(font-path('glyphicons-halflings-regular.svg') + "#MyFont") format('svg');
+  src:  url("<%= asset_path 'glyphicons-halflings-regular.eot' %>") + "?#iefix" format('embedded-opentype'),
+        url(font-path("<%= asset_path 'glyphicons-halflings-regular.woff' %>")) format('woff'), 
+        url(font-path("<%= asset_path 'glyphicons-halflings-regular.ttf' %>"))  format('truetype'),
+        url(font-path("<%= asset_path 'glyphicons-halflings-regular.svg' %>") + "#MyFont") format('svg');
  }
+
 
 .centered {
   text-align: center;
