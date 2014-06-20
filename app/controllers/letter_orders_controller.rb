@@ -1,5 +1,4 @@
 class LetterOrdersController < ApplicationController
-  load_and_authorize_resource
 
   def create
     @letter_order = LetterOrder.new(letter_order_params)
@@ -14,9 +13,9 @@ class LetterOrdersController < ApplicationController
   def show
     @letter_order = LetterOrder.find(params[:id])
     @letter = Letter.find(@letter_order.letter_id)
-    # pdf = Prawn::Document.new
-    # pdf.text "Hello World"
-    # x = pdf.render_file 'test.pdf'
+    pdf = Prawn::Document.new
+    pdf.text "Hello World"
+    x = pdf.render_file 'test.pdf'
        
     #deliver_as_snail_mail(@letter_order)
 
@@ -27,10 +26,6 @@ class LetterOrdersController < ApplicationController
         pdf.text "Dearest #{@letter_order.recipient_name},"
         pdf.move_down 15
         pdf.text @letter.content
-        pdf.move_down 15
-        if @letter_order.custom_message.present?
-          pdf.text @letter_order.custom_message
-        end
         pdf.text "\nAll my love,\n"
         pdf.text "#{@letter_order.signature}"
         send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
@@ -81,7 +76,7 @@ class LetterOrdersController < ApplicationController
     @letter_order = letter_order
     @letter = Letter.find(@letter_order.letter_id)
     user = User.find(@letter_order.user_id)
-    @lob = Lob(api_key: ENV['LOB_KEY']) #change to ENV key
+    @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
     response = @lob.jobs.create(
       name: "Inline Test Job",
       from: {
@@ -103,26 +98,15 @@ class LetterOrdersController < ApplicationController
       },
       objects: {
         name: "letter: #{@letter.id}",
-        file:  "http://www.lovelettermashup.com/letter_orders/#{letter_order.id}.pdf", #in production, change to 'http://lovelettermashup.com/letter_orders/#{letter_order.id}.pdf'
+        file:  "http://www.ub-careers.buffalo.edu/rsample1p.pdf", #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
         setting_id: 100
     })
     #from response, save job order id to letter_order in database
   end
 
-  def cancel
-    @letter_order = LetterOrder.find(params[:id])
-    @letter = Letter.find(@letter_order.letter_id)
-    if @letter_order.delete && @letter.delete
-      redirect_to new_letter_path
-    else
-      gflash notice: "Something went wrong. Try again or click a link in the navbar at the top of this page."
-      redirect_to :back
-    end
-  end
-
   private
 
   def letter_order_params
-    params.require(:letter_order).permit(:recipient_email, :recipient_name, :type, :signature, :letter_id, :user_id, :delivery_type, :address_line_1, :address_line_2, :city, :state, :zip_code, :custom_message)
+    params.require(:letter_order).permit(:recipient_email, :recipient_name, :type, :signature, :letter_id, :user_id, :delivery_type, :address_line_1, :address_line_2, :city, :state, :zip_code)
   end
 end
