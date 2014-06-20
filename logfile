@@ -27,3 +27,6 @@ LOG:  autovacuum launcher shutting down
 LOG:  received smart shutdown request
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2014-06-19 22:05:02 EDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
