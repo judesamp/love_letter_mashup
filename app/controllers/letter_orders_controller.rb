@@ -78,6 +78,7 @@ class LetterOrdersController < ApplicationController
     @letter = Letter.find(@letter_order.letter_id)
     user = User.find(@letter_order.user_id)
     @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
+    pdf = create_letter_pdf
     response = @lob.jobs.create(
       name: "Inline Test Job",
       from: {
@@ -99,10 +100,20 @@ class LetterOrdersController < ApplicationController
       },
       objects: {
         name: "letter: #{@letter.id}",
-        file:  "http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf", #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
+        file:  pdf, #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
         setting_id: 100
     })
     #from response, save job order id to letter_order in database
+  end
+
+  def create_letter_pdf
+    pdf = Prawn::Document.new
+    pdf.text "Dearest #{@letter_order.recipient_name},"
+    pdf.move_down 15
+    pdf.text @letter.content
+    pdf.text "\nAll my love,\n"
+    pdf.text "#{@letter_order.signature}"
+    pdf
   end
 
   private
