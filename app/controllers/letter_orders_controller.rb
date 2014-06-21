@@ -77,9 +77,11 @@ class LetterOrdersController < ApplicationController
     @letter_order = letter_order
     @letter = Letter.find(@letter_order.letter_id)
     user = User.find(@letter_order.user_id)
+    Lob.configure do | config |
+      config.protocol = “http”
+      config.api_key = "test_54d506bcb9685853d7189ac266b7e173a1e"
+    end
     @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
-    pdf = create_letter_pdf
-    puts pdf.inspect
     response = @lob.jobs.create(
       name: "Inline Test Job",
       from: {
@@ -101,7 +103,7 @@ class LetterOrdersController < ApplicationController
       },
       objects: {
         name: "letter: #{@letter.id}",
-        file:  pdf.render, filename: 'report.pdf', #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
+        file:  "http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf", #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
         setting_id: 100
     })
     puts response.inspect
