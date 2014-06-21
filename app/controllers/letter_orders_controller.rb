@@ -79,7 +79,7 @@ class LetterOrdersController < ApplicationController
     user = User.find(@letter_order.user_id)
     @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
     pdf = create_letter_pdf
-    puts pdf.inspect
+    pdf.render_file "public/pdfs/#{@letter_order.id}.pdf"
     response = @lob.jobs.create(
       name: "Inline Test Job",
       from: {
@@ -101,7 +101,7 @@ class LetterOrdersController < ApplicationController
       },
       objects: {
         name: "letter: #{@letter.id}",
-        file: send_data(pdf.render, :filename => "x.pdf", :type => "application/pdf", :disposition => 'inline'),#in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
+        file: File.new(File.expand_path("./public/pdfs/#{@letter_order.id}.pdf")),
         setting_id: 100
     })
     puts response.inspect
