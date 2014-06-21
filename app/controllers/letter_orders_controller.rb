@@ -1,4 +1,5 @@
 class LetterOrdersController < ApplicationController
+  skip_before_filter :authenticate_user, :only => :show
 
   def create
     @letter_order = LetterOrder.new(letter_order_params)
