@@ -27,7 +27,6 @@ class Ability
         can :checkout, LetterOrder, :user_id => user.id
         can :charge_create, LetterOrder, :user_id => user.id
         can :deliver_as_email, LetterOrder, :user_id => user.id
-        can :deliver_as_snail_mail, LetterOrder, :user_id => user.id
 
       end
     

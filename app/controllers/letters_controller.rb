@@ -75,7 +75,6 @@ class LettersController < ApplicationController
     process_question_return_snippet(4, params[:question_4], @letter)
     process_question_return_snippet(5, params[:question_5], @letter)
     build_quiz_letter(@letter)
-    puts @letter.snippets.inspect
   end
 
   def process_question_return_snippet(question, answer, letter)

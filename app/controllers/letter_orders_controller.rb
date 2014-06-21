@@ -98,7 +98,7 @@ class LetterOrdersController < ApplicationController
       },
       objects: {
         name: "letter: #{@letter.id}",
-        file:  "http://www.ub-careers.buffalo.edu/rsample1p.pdf", #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
+        file:  "http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf", #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
         setting_id: 100
     })
     #from response, save job order id to letter_order in database
