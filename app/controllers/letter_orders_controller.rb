@@ -101,7 +101,7 @@ class LetterOrdersController < ApplicationController
       },
       objects: {
         name: "letter: #{@letter.id}",
-        file:  pdf, #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
+        file:  pdf.render, filename: 'report.pdf', #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
         setting_id: 100
     })
     puts response.inspect
