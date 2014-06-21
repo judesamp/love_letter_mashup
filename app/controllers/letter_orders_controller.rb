@@ -79,6 +79,7 @@ class LetterOrdersController < ApplicationController
     user = User.find(@letter_order.user_id)
     @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
     pdf = create_letter_pdf
+    puts pdf.inspect
     response = @lob.jobs.create(
       name: "Inline Test Job",
       from: {
@@ -103,6 +104,7 @@ class LetterOrdersController < ApplicationController
         file:  pdf, #in production, change to 'http://pacific-refuge-9865.herokuapp.com/letter_orders/#{letter_order.id}.pdf'
         setting_id: 100
     })
+    puts response.inspect
     #from response, save job order id to letter_order in database
   end
 
