@@ -78,7 +78,7 @@ class LetterOrdersController < ApplicationController
     @letter = Letter.find(@letter_order.letter_id)
     user = User.find(@letter_order.user_id)
     Lob.configure do | config |
-      config.protocol = “http”
+      config.protocol = "http"
       config.api_key = "test_54d506bcb9685853d7189ac266b7e173a1e"
     end
     @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
