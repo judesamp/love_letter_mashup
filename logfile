@@ -30,3 +30,9 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2014-06-19 22:05:02 EDT
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+LOG:  database system was interrupted; last known up at 2014-06-21 17:12:41 EDT
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/EE45C30
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
