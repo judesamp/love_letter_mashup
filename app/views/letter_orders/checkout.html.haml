@@ -4,4 +4,4 @@
 	%br
 	%span.centered
 		= form_tag charge_create_letter_order_path(@letter_order), method: :post do
-			%script.stripe-button{"data-amount" => "200", "data-description" => "Send via Snail Mail ($2.00)", "data-image" => "/128x128.png", "data-key" => "pk_test_pd5zrVQXUDHLS96arlQYvgFA", "data-name" => "LoveLetterMashup", src: "https://checkout.stripe.com/checkout.js"}
+			%script.stripe-button{"data-amount" => "200", "data-description" => "Send via Snail Mail ($2.00)", "data-image" => "/128x128.png", "data-key" => ENV["STRIPE_PK"], "data-name" => "LoveLetterMashup", src: "https://checkout.stripe.com/checkout.js"}
