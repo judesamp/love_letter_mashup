@@ -41,7 +41,7 @@ class LetterOrdersController < ApplicationController
   def charge_create
     ### ensure customer hasn't already paid for sending this letter to this particular person???
     @letter_order = LetterOrder.find(params[:id])
-    Stripe.api_key = "sk_test_lkp40TChTNR5NT9iJJw6vuKh"
+    Stripe.api_key = ENV["STRIPE_SK"]
 
     token = params[:stripeToken]
 
