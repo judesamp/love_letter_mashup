@@ -36,3 +36,7 @@ LOG:  record with zero length at 0/EE45C30
 LOG:  redo is not required
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  database "running_app_development" already exists
+STATEMENT:  CREATE DATABASE "running_app_development" ENCODING = 'utf8'
+ERROR:  database "running_app_test" already exists
+STATEMENT:  CREATE DATABASE "running_app_test" ENCODING = 'utf8'
