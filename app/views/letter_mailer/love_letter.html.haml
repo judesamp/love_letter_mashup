@@ -7,6 +7,8 @@
       Dearest #{@letter_order.recipient_name},
     %p
       = simple_format(@letter.content)
+    %p
+      = simple_format(@letter_order.custom_message)
       
     %p
       Love, 

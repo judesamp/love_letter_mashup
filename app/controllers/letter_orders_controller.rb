@@ -121,6 +121,6 @@ class LetterOrdersController < ApplicationController
   private
 
   def letter_order_params
-    params.require(:letter_order).permit(:recipient_email, :recipient_name, :type, :signature, :letter_id, :user_id, :delivery_type, :address_line_1, :address_line_2, :city, :state, :zip_code)
+    params.require(:letter_order).permit(:recipient_email, :recipient_name, :type, :signature, :letter_id, :user_id, :delivery_type, :address_line_1, :address_line_2, :city, :state, :zip_code, :custom_message)
   end
 end

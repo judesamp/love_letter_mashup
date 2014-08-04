@@ -1,6 +1,8 @@
 Dearest <%= @letter_order.recipient_name %>,
  
 <%= simple_format(@letter.content) %>
+
+<%= simple_format(@letter_order.custom_message) %>
  
 Love,
 
