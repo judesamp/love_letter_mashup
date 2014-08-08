@@ -43,13 +43,13 @@ class LetterOrdersController < ApplicationController
     ### ensure customer hasn't already paid for sending this letter to this particular person???
     @letter_order = LetterOrder.find(params[:id])
     token = params[:stripeToken]
-    interface_with_stripe
+    interface_with_stripe(token)
     gflash notice: "Your card has been successfully charged. We're prepping your letter for sending right now!"
     deliver_as_snail_mail(@letter_order)
     redirect_to new_letter_path
   end
 
-  def interface_with_stripe
+  def interface_with_stripe(token)
     Stripe.api_key = ENV["STRIPE_SK"]
     begin
       charge = Stripe::Charge.create(
