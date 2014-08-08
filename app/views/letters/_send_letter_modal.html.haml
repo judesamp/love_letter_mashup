@@ -79,7 +79,7 @@ First choose how to send your love letter. You will have a chance to review your
       .form-group
         = f.label :state, class: 'col-sm-2 control-label'
         .col-sm-4
-          = select_tag :state, us_states, class: 'form-control'
+          = f.select :state, options_for_select(us_states), {}, { :class => 'form-control' }
           %br
         = f.label :zipcode, class: 'col-sm-2 control-label'
         .col-sm-4
