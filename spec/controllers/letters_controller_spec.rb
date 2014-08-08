@@ -415,30 +415,6 @@ describe LettersController do
 
 end
 
-    # @letter = Letter.find(params[:letter][:letter_id])
-    # @snippet = Snippet.find(params[:letter][:snippet_id])
-    # letter_snippet = LetterSnippet.new letter: @letter, snippet: @snippet, position: 1
-    # letter_snippet.save
-
- #  def build_snippet_letter
- #    @letter = Letter.find(params[:letter_id])
- #    letter_content = ''
- #    @letter.snippets.by_position.each do |snippet|
- #      letter_content += " #{snippet.content}"
- #    end
- #    @letter.content = letter_content
- #    @letter.save
- #    render nothing: true
- #  end
-
- #  def build_quiz_letter(letter)
- #    letter_content = ''
- #    @letter.snippets.each do |snippet|
- #      letter_content += " #{snippet.content}"
- #    end
- #    @letter.content = letter_content
- #    @letter.save
- #  end
 
  #{"direction"=>"next", "offset"=>"1", "id"=>"2"}
 

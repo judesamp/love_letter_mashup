@@ -42,25 +42,26 @@ class LetterOrdersController < ApplicationController
   def charge_create
     ### ensure customer hasn't already paid for sending this letter to this particular person???
     @letter_order = LetterOrder.find(params[:id])
-    Stripe.api_key = ENV["STRIPE_SK"]
-
     token = params[:stripeToken]
+    interface_with_stripe
+    gflash notice: "Your card has been successfully charged. We're prepping your letter for sending right now!"
+    deliver_as_snail_mail(@letter_order)
+    redirect_to new_letter_path
+  end
 
+  def interface_with_stripe
+    Stripe.api_key = ENV["STRIPE_SK"]
     begin
       charge = Stripe::Charge.create(
         :amount => 200, # amount in cents, again
         :currency => "usd",
         :card => token,
-        :description => "payinguser@example.com"
+        :description => "#{current_user.email}"
       )
     rescue Stripe::CardError => e
       gflash notice: "There was a problem with your card. Please try again. #{e.full_messages}"
       redirect_to :back
     end
-
-    gflash notice: "Your card has been successfully charged. We're prepping your letter for sending right now!"
-    deliver_as_snail_mail(@letter_order)
-    redirect_to new_letter_path
   end
 
   # move to model
@@ -72,16 +73,18 @@ class LetterOrdersController < ApplicationController
     redirect_to root_path
   end
 
-
-  # hook this up appropriately later
   def deliver_as_snail_mail(letter_order)
-    @letter_order = letter_order
-    @letter = Letter.find(@letter_order.letter_id)
-    user = User.find(@letter_order.user_id)
-    @lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
-    pdf = create_letter_pdf
-    pdf.render_file "public/pdfs/#{@letter_order.id}.pdf"
-    response = @lob.jobs.create(
+    letter_order = letter_order
+    letter = Letter.find(letter_order.letter_id)
+    user = User.find(letter_order.user_id)
+    send_letter_to_lob_for_printing(letter_order, letter, user) 
+  end
+
+  def send_letter_to_lob_for_printing(letter_order, letter, user)
+    lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
+    pdf = create_letter_pdf(letter)
+    pdf.render_file "public/pdfs/#{letter_order.id}.pdf"
+    response = lob.jobs.create(
       name: "Inline Test Job",
       from: {
         name:    "#{user.name}",
@@ -92,24 +95,24 @@ class LetterOrdersController < ApplicationController
         zip:    31220
       },
       to: {
-        name:    @letter_order.recipient_name,
-        address_line1: @letter_order.address_line_1,
-        address_line2: @letter_order.address_line_2,
-        city:    @letter_order.city,
-        state:  @letter_order.state,
+        name:    letter_order.recipient_name,
+        address_line1: letter_order.address_line_1,
+        address_line2: letter_order.address_line_2,
+        city:    letter_order.city,
+        state:  letter_order.state,
         country: "US",
-        zip:    @letter_order.zip_code
+        zip:    letter_order.zip_code
       },
       objects: {
-        name: "letter: #{@letter.id}",
-        file: File.new(File.expand_path("./public/pdfs/#{@letter_order.id}.pdf")),
+        name: "letter: #{letter.id}",
+        file: File.new(File.expand_path("./public/pdfs/#{letter_order.id}.pdf")),
         setting_id: 100
     })
-    puts response.inspect
+    #puts response.inspect
     #from response, save job order id to letter_order in database
   end
 
-  def create_letter_pdf
+  def create_letter_pdf(letter)
     pdf = Prawn::Document.new
     pdf.text "Dearest #{@letter_order.recipient_name},"
     pdf.move_down 15
