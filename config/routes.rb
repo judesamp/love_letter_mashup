@@ -28,9 +28,6 @@ Rails.application.routes.draw do
 
   end
 
-
-
-
   resources :authors
   resources :letter_orders do
     member do
