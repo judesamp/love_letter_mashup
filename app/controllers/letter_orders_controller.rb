@@ -82,7 +82,7 @@ class LetterOrdersController < ApplicationController
 
   def send_letter_to_lob_for_printing(letter_order, letter, user)
     lob = Lob(api_key: "test_54d506bcb9685853d7189ac266b7e173a1e")
-    pdf = create_letter_pdf(letter)
+    pdf = create_letter_pdf(letter, letter_order)
     pdf.render_file "public/pdfs/#{letter_order.id}.pdf"
     response = lob.jobs.create(
       name: "Inline Test Job",
@@ -112,13 +112,13 @@ class LetterOrdersController < ApplicationController
     #from response, save job order id to letter_order in database
   end
 
-  def create_letter_pdf(letter)
+  def create_letter_pdf(letter, letter_order)
     pdf = Prawn::Document.new
-    pdf.text "Dearest #{@letter_order.recipient_name},"
+    pdf.text "Dearest #{letter_order.recipient_name},"
     pdf.move_down 15
-    pdf.text @letter.content
+    pdf.text letter.content
     pdf.text "\nAll my love,\n"
-    pdf.text "#{@letter_order.signature}"
+    pdf.text "#{letter_order.signature}"
     pdf
   end
 
