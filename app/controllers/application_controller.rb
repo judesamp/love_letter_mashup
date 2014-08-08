@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       return true 
     else
-      redirect_to welcome_path
+      redirect_to root_path
       return false
     end
   end

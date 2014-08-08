@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_filter :authenticate_user
+  layout 'workspace'
 
   def new
   end

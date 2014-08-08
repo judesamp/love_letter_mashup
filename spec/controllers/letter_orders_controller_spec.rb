@@ -53,6 +53,35 @@ describe LetterOrdersController do
 
   end
 
+  describe "GET #checkout" do
+
+    it "should find and assign present letter_order to @letter_order" do
+      login(user)
+      get :checkout, id: letter_order
+      expect(assigns(:letter_order)).to eq letter_order
+    end
+
+  end
+
+  describe "GET #charge_create" do
+    # it "should find and assign present letter_order to @letter_order" do
+    #   ENV["STRIPE_SK"] = "sk_test_lkp40TChTNR5NT9iJJw6vuKh"
+    #   login(user)
+    #   get :charge_create, id: letter_order
+    #   expect(assigns(:letter_order)).to eq letter_order
+    # end
+  end
+
+  describe "GET #deliver_as_snail_mail" do
+
+  end
+
+  describe "GET #create_letter_pdf" do
+
+  end
+
 end
+
+
 
 

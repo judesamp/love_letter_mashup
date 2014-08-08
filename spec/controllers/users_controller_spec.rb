@@ -49,7 +49,7 @@ describe UsersController do
     it "redirects to the welcome page (if create was unsuccessful)" do
       user_attrs = FactoryGirl.attributes_for(:invalid_user)
       post :create, user: user_attrs
-      response.should redirect_to welcome_path
+      response.should redirect_to root_path
     end
 
   end

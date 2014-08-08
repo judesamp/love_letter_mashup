@@ -1,5 +1,6 @@
 class LettersController < ApplicationController
   load_and_authorize_resource
+  layout 'workspace'
 
   def index
     @letters = current_user.letters.where("content is Not NULL")
@@ -152,7 +153,6 @@ class LettersController < ApplicationController
       @next_letter = Letter.where("author_id is Not NULL").limit(1).offset(0)[0]
     elsif @workspace == "snippet_workspace"
       @authors = Author.joins(:snippets).where('snippets is not null').uniq
-      puts @authors
       @current_letter = Letter.create
       current_user.letters << @current_letter
     else
@@ -163,7 +163,6 @@ class LettersController < ApplicationController
   def set_snippet(letter)
     snippet = nil
     loop do
-      puts 'here'
       snippet = Snippet.all.sample
       break unless letter.snippets.include? snippet 
     end

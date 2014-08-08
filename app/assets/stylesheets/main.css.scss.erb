@@ -1,0 +1,332 @@
+.welcome_html, .welcome_body {
+  background: url(<%= asset_path("cover.png") %>) no-repeat 0 0;
+  background-size: cover;
+  height: 100%;
+}
+
+.workspace_html, .workspace_body {
+  height: 100%;
+  background: url(<%= asset_path("paper_it.png") %>);
+  background-repeat: repeat-y;
+  padding: 0;
+  margin: 0;
+  font-family: 'Rosario', sans-serif;
+}
+
+
+
+.workspace_body {
+  margin-top: 30px;
+}
+
+.welcome_body {
+  margin-top: 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rosario', sans-serif;
+}
+
+.glyphicon {
+  font-family:'Glyphicons Halflings' !important;
+  src:  url(font-path("<%= asset_path('glyphicons-halflings-regular.eot') %>") + "?#iefix") format('embedded-opentype'),
+        url(font-path("<%= asset_path('glyphicons-halflings-regular.woff') %>")) format('woff'), 
+        url(font-path("<%= asset_path('glyphicons-halflings-regular.ttf') %>"))  format('truetype'),
+        url(font-path("<%= asset_path('glyphicons-halflings-regular.svg') %>") + "#MyFont") format('svg');
+ }
+
+.centered {
+  text-align: center;
+}
+
+.gray {
+  background: gray;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.workspace_nav {
+  margin-top: 20px;
+}
+
+.workspace_back {
+  position: absolute;
+  left: 20px;
+  top: 71px;
+}
+
+.send_letter_button_bottom {
+}
+
+.top_right {
+  position: absolute;
+  right: 20px;
+  top: 71px;
+}
+
+.letter_nav {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.direction_button {
+  width: 200px;
+}
+
+.letter_text {
+  padding: 0 60px;
+}
+
+.workspace_content {
+}
+
+.floating_nav {
+  display: none;
+}
+
+.modal_custom {
+  display: none; 
+  position: fixed; 
+  left: 25%; 
+  top: 20%; 
+  padding: 25px; 
+  border: 2px solid black;
+  background-color: #ffffff;
+  width: 50%;
+  max-height: 75%;
+  z-index: 2000;
+  overflow-y: auto; 
+}
+
+#fade {
+  display: none;  
+  position: fixed; 
+  left: 0%; 
+  top: 0%;
+  background-color: black;
+  -moz-opacity: 0.7; 
+  opacity: .70;
+  filter: alpha(opacity=70);
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+}
+
+.letter_content {
+  margin-bottom: 50px;
+}
+
+.thirty-three {
+  width: 32%;
+}
+
+.show_letter_text {
+  margin-left: 20px;
+}
+
+.edit_button_wide {
+  width: 100%;
+}
+
+.hidden_form {
+  display:none;
+}
+
+.mash_title {
+  padding-top: 0;
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+
+#fade_instructions {
+  position: fixed; 
+  left: 0%; 
+  top: 0%;
+  background-color: black;
+  -moz-opacity: 0.7; 
+  opacity: .70;
+  filter: alpha(opacity=70);
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+}
+
+.modal_custom_instructions {
+  position: fixed; 
+  left: 25%; 
+  top: 20%; 
+  padding: 25px; 
+  border: 2px solid black;
+  background-color: #ffffff;
+  width: 50%;
+  height: 50%;
+  z-index: 2000;
+  overflow-y: auto; 
+}
+
+.letter_view_workspace {
+  display: none;
+  min-height: 700px;
+}
+
+.author_name {
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 11px;
+  position: relative;
+  bottom: 10px;
+  min-width:328px;
+}
+
+.snippet_view_workspace {
+  padding-left: 45px;
+  padding-top: 30px;
+  min-height: 700px;
+}
+
+.widen {
+  width: 300px;
+}
+
+.snippet_image {
+  height: 50px;
+  position: relative;
+  bottom: 15px;
+}
+
+.author_snippets {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.snippet_title {
+}
+
+.genie_title {
+  margin-top: 18px;
+}
+
+.red {
+  background-color: #760003;
+}
+
+.signup_modal {
+  z-index: 1031;
+}
+
+.workspace_background_image {
+  
+}
+
+.snippet_content {
+  position: relative;
+  top: -3px;
+}
+
+.snippet_margin {
+  margin-left: 20px;
+}
+
+.inline_title {
+  display: inline;
+}
+
+.send_snippet_letter_button {
+}
+
+.snippet_title {
+}
+
+.float_right {
+  float: right;
+}
+
+.author_icon:before {
+  font-size: 200%;
+  position: relative;
+  bottom: 13px;
+  color: #E74C3C;
+}
+
+.quiz_answer {
+ 
+  margin-right: 8px;
+}
+
+.snippet_button {
+  position: relative;
+  right: 10px;
+}
+
+.answer_holder {
+  text_align:center;
+}
+
+.pad {
+  padding-top: 3px;
+}
+
+.center_this {
+}
+
+.center_this {
+}
+
+.red_button:hover, .red_button:focus, .red_button:active, .red_button.active, .open .dropdown-toggle.btn-primary {
+  background-color: red;
+  border-color: red;
+}
+
+.workspace {
+  height: 100%;
+}
+
+.holder {
+  margin-top: 10px;
+}
+
+.letter_order_hr {
+  border-top: 3px solid #2C3E50;
+}
+
+.letter_table {
+  background: white;;
+}
+
+.workspace_contain {
+  height: 100%;
+  overflow:hidden;
+}
+
+.top_margin {
+  margin-top: 50px;
+}
+
+.cover_div {
+  padding-top: 1px;
+  padding-left: 40%;
+  padding-right: 5%;
+}
+
+.pad_the_top {
+  padding-top: 25px;
+}
+
+.workspace_holder {
+  height: 100%;
+
+}
+
+.social {
+  width: 300px;
+}
+
+.part_1 {
+  overflow: auto;
+}
+
+.explanation {
+  min-height: 200px;
+}

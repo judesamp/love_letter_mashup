@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to new_letter_path, notice: "You've signed up and we've logged you in. Now go mash some letters."
     else
-      redirect_to welcome_path, notice: "We were unable to create your account. Please try again."
+      redirect_to root_path, notice: "We were unable to create your account. Please try again."
     end
   end
 

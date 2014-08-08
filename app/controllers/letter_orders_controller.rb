@@ -1,5 +1,6 @@
 class LetterOrdersController < ApplicationController
   skip_before_filter :authenticate_user, :only => :show
+  layout 'workspace'
 
   def create
     @letter_order = LetterOrder.new(letter_order_params)
@@ -53,7 +54,7 @@ class LetterOrdersController < ApplicationController
         :description => "payinguser@example.com"
       )
     rescue Stripe::CardError => e
-      gflash notice: "There was a problem with yoru card. Please try again. #{e.full_messages}"
+      gflash notice: "There was a problem with your card. Please try again. #{e.full_messages}"
       redirect_to :back
     end
 
