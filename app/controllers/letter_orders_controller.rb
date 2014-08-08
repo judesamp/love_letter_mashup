@@ -81,8 +81,7 @@ class LetterOrdersController < ApplicationController
   end
 
   def send_letter_to_lob_for_printing(letter_order, letter, user)
-    lob_key = ENV("LOB_KEY")
-    lob = Lob(api_key: lob_key)
+    lob = Lob(api_key: ENV["LOB_KEY"])
     pdf = create_letter_pdf(letter, letter_order)
     pdf.render_file "public/pdfs/#{letter_order.id}.pdf"
     response = lob.jobs.create(
