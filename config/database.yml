@@ -1,18 +1,19 @@
 development:
-  DATABASE_URL: postgres://ekhbkzwqzexrrs:kcShaXAwo3Orl2CoBGcAh7i7El@ec2-107-20-244-236.compute-1.amazonaws.com:5432/dcta7fslmce6p1  
+
   adapter: postgresql
   encoding: utf8
+  database: love_letter_mashup_development
   pool: 5
 
 test:
-  DATABASE_URL: postgres://ekhbkzwqzexrrs:kcShaXAwo3Orl2CoBGcAh7i7El@ec2-107-20-244-236.compute-1.amazonaws.com:5432/dcta7fslmce6p1  
   adapter: postgresql
   encoding: utf8
   reconnect: false
+  database: love_letter_mashup_test
   pool: 5
 
-production:
-  DATABASE_URL: postgres://ekhbkzwqzexrrs:kcShaXAwo3Orl2CoBGcAh7i7El@ec2-107-20-244-236.compute-1.amazonaws.com:5432/dcta7fslmce6p1  
+production:  
   adapter: postgresql
   encoding: utf8
+  database: love_letter_mashup
   pool: 5
