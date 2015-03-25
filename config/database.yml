@@ -1,4 +1,5 @@
 development:
+
   adapter: postgresql
   encoding: utf8
   database: love_letter_mashup_development
@@ -11,7 +12,7 @@ test:
   database: love_letter_mashup_test
   pool: 5
 
-production:
+production:  
   adapter: postgresql
   encoding: utf8
   database: love_letter_mashup
