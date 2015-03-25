@@ -1,4 +1,4 @@
-notification :terminal_notifier
+notification :off
 
 
 guard :rspec do
