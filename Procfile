@@ -1,2 +1,1 @@
-web: rails server -p 5000
-
+web: bundle exec rails server -p 5000
