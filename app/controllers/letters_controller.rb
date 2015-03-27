@@ -68,7 +68,6 @@ class LettersController < ApplicationController
 
   def create_with_quiz
     @letter = Letter.create
-    current_user.letters << @letter
     current_user.save
     process_question_return_snippet(1, params[:question_1], @letter)
     process_question_return_snippet(2, params[:question_2], @letter)
@@ -154,7 +153,7 @@ class LettersController < ApplicationController
     elsif @workspace == "snippet_workspace"
       @authors = Author.joins(:snippets).where('snippets is not null').uniq
       @current_letter = Letter.create
-      current_user.letters << @current_letter
+      current_user.letters == @current_letter
     else
       @current_letter = Letter.new
     end

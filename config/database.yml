@@ -1,19 +1,25 @@
 development:
 
   adapter: postgresql
+  username: root
+  password: root
   encoding: utf8
-  database: love_letter_mashup_development
+  database: rex_love_letter_mashup_development
   pool: 5
 
 test:
   adapter: postgresql
+  username: root
+  password: root
   encoding: utf8
   reconnect: false
-  database: love_letter_mashup_test
+  database: rex_love_letter_mashup_test
   pool: 5
 
 production:  
   adapter: postgresql
+  username: root
+  password: root
   encoding: utf8
-  database: love_letter_mashup
+  database: rex_love_letter_mashup
   pool: 5
