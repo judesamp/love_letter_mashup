@@ -1,7 +1,7 @@
 var workspace = '<%= escape_javascript @workspace %>';
 
 if (workspace == "snippet_workspace") {
-	$('.snippet_view_workspace').attr("data-letter-id","<%= @current_letter.id %>");
+  $('.snippet_view_workspace').attr("data-letter-id","<%= @current_letter.id %>");
 }
 
 
@@ -18,24 +18,11 @@ $('.main_content').hide("slide", { direction: "right" }, 800, function() {
 
 
 $('.main_content').show("slide", { direction: "left" }, 800, function() {
-	
+  
   $('.floating_nav').fadeIn('slow');
 
   if (workspace == "snippet_workspace") {
-		<%= add_gritter("Choose the snippets you want to include, then arrange them in the order you want them to appear in your letter.", :title => "Instructions", :sticky => true) %>
-	}
+    <%= add_gritter("Choose the snippets you want to include, then arrange them in the order you want them to appear in your letter.", :title => "Instructions", :sticky => true) %>
+  }
 
 });
-
-    
-   
-  
-
-
-
-
-
-
-
-
-

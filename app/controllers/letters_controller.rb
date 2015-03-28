@@ -1,3 +1,4 @@
+
 class LettersController < ApplicationController
   load_and_authorize_resource
   layout 'workspace'
@@ -82,57 +83,41 @@ class LettersController < ApplicationController
     when 1
       if answer == "A"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       elsif answer == "B"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       else
-        snippet = set_snippet(letter)
-        letter.snippets << snippet
       end
     when 2
       if answer == "A"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       elsif answer == "B"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       else
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       end
     when 3
       if answer == "A"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       elsif answer == "B"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       else
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       end
     when 4
       if answer == "A"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       elsif answer == "B"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       else
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       end
     else
       if answer == "A"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       elsif answer == "B"
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       else
         snippet = set_snippet(letter)
-        letter.snippets << snippet
       end
     end
   end
@@ -153,7 +138,6 @@ class LettersController < ApplicationController
     elsif @workspace == "snippet_workspace"
       @authors = Author.joins(:snippets).where('snippets is not null').uniq
       @current_letter = Letter.create
-      current_user.letters == @current_letter
     else
       @current_letter = Letter.new
     end

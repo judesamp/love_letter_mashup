@@ -1,27 +1,27 @@
 development:
   host: localhost
-  adapter: postgresql
   username: root
   password: root
+  adapter: postgresql
   encoding: utf8
-  database: rex_love_letter_mashup_development
+  database: love_letter_mashup_development
   pool: 5
 
 test:
   host: localhost
-  adapter: postgresql
   username: root
   password: root
+  adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: rex_love_letter_mashup_test
+  database: love_letter_mashup_test
   pool: 5
 
 production: 
   host: localhost
   username: root
-  password: root 
+  password: root
   adapter: postgresql
   encoding: utf8
-  database: rex_love_letter_mashup
+  database: love_letter_mashup
   pool: 5
