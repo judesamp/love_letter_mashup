@@ -1,17 +1,26 @@
 development:
+  host: localhost
+  username: root
+  password: root
   adapter: postgresql
   encoding: utf8
   database: love_letter_mashup_development
   pool: 5
 
 test:
+  host: localhost
+  username: root
+  password: root
   adapter: postgresql
   encoding: utf8
   reconnect: false
   database: love_letter_mashup_test
   pool: 5
 
-production:
+production: 
+  host: localhost
+  username: root
+  password: root
   adapter: postgresql
   encoding: utf8
   database: love_letter_mashup
